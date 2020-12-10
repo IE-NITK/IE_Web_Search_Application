@@ -1,11 +1,21 @@
 import React from "react";
 import App from "../../App";
+import SearchBar from "material-ui-search-bar";
 
-const Search = () => {
+
+
+
+
+
+const Search = (props) => {
   return (
-    <div>
-      <h1>Search Bar</h1>
-    </div>
+    <div > 
+    <SearchBar
+  />
+  <br></br>
+
+</div>
+
   );
 };
 export default Search;
