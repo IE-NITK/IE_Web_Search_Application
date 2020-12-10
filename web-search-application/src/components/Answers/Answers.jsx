@@ -19,7 +19,7 @@ const Answers = (props) => {
       <Grid item xs={12} md={10} className={styles.gap}>
         <Card className={styles.specialcard}>
           <CardContent>
-            <Accordion>
+            <Accordion defaultExpanded>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
