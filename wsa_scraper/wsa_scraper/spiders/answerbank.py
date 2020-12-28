@@ -1,5 +1,5 @@
 import scrapy
-from ..items import AnswerBankItem
+from ..items import QuestionListItem
 class answerbank(scrapy.Spider):
     page = 2
     name = 'answerbank'
@@ -17,7 +17,7 @@ class answerbank(scrapy.Spider):
                 yield scrapy.Request(url = "https://www.theanswerbank.co.uk/Technology/?cftype=all_answered&page={}".format(self.page), callback=self.parse)
 
     def parse_question(self, response):
-            items = AnswerBankItem()
+            items = QuestionListItem()
             items['question'] = response.css("div.middle h1::text").extract_first()
             details = response.css("div.contentQuestionText::text").extract()
             answer = response.css("div.best-answer-block p::text").extract()
