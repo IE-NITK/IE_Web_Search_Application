@@ -11,6 +11,7 @@ class WsaScraperItem(scrapy.Item):
     # name = scrapy.Field()
     pass
 class QuestionListItem(scrapy.Item):
+    id = scrapy.Field()
     question = scrapy.Field()
     details = scrapy.Field()
     answers = scrapy.Field()

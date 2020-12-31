@@ -1,6 +1,11 @@
 import scrapy
 from ..items import QuestionListItem
+from datetime import datetime
+from elasticsearch import Elasticsearch
+es = Elasticsearch()
+
 class stackoverflow(scrapy.Spider):
+    i=0
     page_no = 2
     name = 'stackoverflow'
     start_urls = [
@@ -10,6 +15,7 @@ class stackoverflow(scrapy.Spider):
         base_url = 'https://stackoverflow.com'
         que_set = response.css('div.question-summary')
         for q in que_set:
+            self.i+=1
             link = q.css('h3 a::attr(href)').get()
             #print(link)
             yield response.follow(url = base_url + link, callback=self.parse_question)
@@ -37,8 +43,19 @@ class stackoverflow(scrapy.Spider):
         concat_details = ''
         for detail in details:
             concat_details = concat_details + detail #put a newline if newline separated data is needed
-        
         items['details'] = concat_details
         items['answers'] = answers
+
+        doc = {
+        'question': items['question'],
+        'details': items['details'],
+        'answers': items['answers'],
+        'timestamp': datetime.now(),
+        }
+        res = es.index(index="test-index1", body=doc)
+        print(res['result'])
+
         yield items
-        
+
+# res = es.search(index="test-index", body={"query": {"match_all": {}}})
+# print("Got %d Hits:" % res['hits']['total']['value'])
