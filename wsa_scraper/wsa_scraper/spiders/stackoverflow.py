@@ -2,7 +2,65 @@ import scrapy
 from ..items import QuestionListItem
 from datetime import datetime
 from elasticsearch import Elasticsearch
-es = Elasticsearch()
+import tensorflow as tf
+import tensorflow_hub as hub
+
+es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
+if es.ping():
+    print('Connected to ES!')
+else:
+    print('Could not connect!')
+
+
+structure = {
+    "mappings": {
+        "properties": {
+            "answers": {
+                "type": "text",
+                "fields": {
+                "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+                }
+            }
+            },
+            "details": {
+                "type": "text",
+                "fields": {
+                "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+                }
+            }
+            },
+            "question": {
+                "type": "text",
+                "fields": {
+                "keyword": {
+                "type": "keyword",
+                "ignore_above": 256
+                }
+            }
+            },
+            "total_vectors": {
+                "type": "dense_vector",
+                "dims": 512
+            }
+        }
+    }
+}
+ret = es.indices.create(index='test-database1', ignore=400, body=structure)
+
+embed = hub.load('universal_encoder')
+def make_vector(query):
+    embeddings = embed([query])
+    vector = []
+    for i in embeddings[0]:
+        vector.append(float(i))
+    return vector
+
+
+
 
 class stackoverflow(scrapy.Spider):
     i=0
@@ -45,14 +103,16 @@ class stackoverflow(scrapy.Spider):
             concat_details = concat_details + detail #put a newline if newline separated data is needed
         items['details'] = concat_details
         items['answers'] = answers
+        items['total_vectors'] = make_vector(items['question'])
+    
 
         doc = {
         'question': items['question'],
         'details': items['details'],
         'answers': items['answers'],
-        'timestamp': datetime.now(),
+        'total_vectors': items['total_vectors']
         }
-        res = es.index(index="test-index1", body=doc)
+        res = es.index(index="test-database1", body=doc)
         print(res['result'])
 
         yield items

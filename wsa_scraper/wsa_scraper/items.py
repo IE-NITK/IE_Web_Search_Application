@@ -15,3 +15,4 @@ class QuestionListItem(scrapy.Item):
     question = scrapy.Field()
     details = scrapy.Field()
     answers = scrapy.Field()
+    total_vectors = scrapy.Field()
