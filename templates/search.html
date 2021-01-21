@@ -1,0 +1,8 @@
+{% for res in result %} {% for hit in res['hits']['hits'] %}
+
+<span>{{hit['_source']['question']}}</span>
+<br />
+<span >{{hit['_source']['answers'][1]}}</span>
+<br />
+{% endfor %}
+{% endfor %} 

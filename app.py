@@ -103,8 +103,9 @@ def index():
 
 @app.route('/return_searches', methods=['POST'])
 def return_searches():
-    answer_no = 1
-    to_return = ''
+    result_sup = []
+    #answer_no = 1
+    #to_return = ''
     for i in search(request.form.to_dict()['query']):
         # to_return += '-'*50 + "Answer No:" + str(answer_no) + '-'*50
         # to_return += 2*'<br>'
@@ -122,17 +123,21 @@ def return_searches():
         "_id": ['{}'.format(i[1])]
         }
         }})
-        for x in result['hits']['hits']:
-            to_return += '-'*50 + "Question No:" + str(answer_no) + '-'*50
-            to_return += 2*'<br>'
-            title = (x['_source']['question'])
-            question = (x['_source']['details'])
-            answer = (x['_source']['answers'])[1]
-            to_return+= "Question : " + title + 2*'<br>'
-            to_return += "Detail : " + question + 2*'<br>'
-            to_return +="Answer : " + answer + 2*'<br>'
-        answer_no+=1     
-    return to_return
+        result_sup.append(result)
+        #result_sup[0]['result]['hits']['hits']['_source']['question']
+        #for x in result['hits']['hits']:
+            #to_return += '-'*50 + "Question No:" + str(answer_no) + '-'*50
+            #to_return += 2*'<br>'
+            #info[answer_no-1]['title'] = (x['_source']['question'])
+            #info[answer_no-1]['question'] = (x['_source']['details'])
+            #info[answer_no-1]['answer'] = (x['_source']['answers'])[1]
+            #to_return+= "Question : " + title + 2*'<br>'
+            #to_return += "Detail : " + question + 2*'<br>'
+           # to_return +="Answer : " + answer + 2*'<br>'
+        #answer_no+=1     
+    return flask.render_template('search.html',result=result_sup)
 
+
+    
 if __name__ == '__main__':
     app.run( port=8080)
