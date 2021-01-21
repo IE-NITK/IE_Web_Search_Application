@@ -87,13 +87,13 @@ class stackoverflow(scrapy.Spider):
         data = response.css('div.inner-content')
         items['question'] = data.css("div h1 a.question-hyperlink::text").extract_first()
         details = data.css("div.question div.s-prose p::text, div.question div.s-prose ul::text, div.question div.s-prose .h::text, div.question div.s-prose p code::text, div.question div.post-layout div.s-prose pre code::text").extract()
-        answers_raw = data.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "js-post-body", " " ))]')
+        answers_raw = data.css('#answers')
         answers = []
 
         if answers_raw :
             for answer in answers_raw:
                 data = ''
-                raw_data = answer.css("p::text, code::text, .h::text, ul::text").extract()
+                raw_data = answer.css("p::text, code::text, .h::text, ul::text,a::text,strong::text,em::text, pre::text, span::text").extract()
                 for row in raw_data:
                     data = data + row #put a newline if newline separated data is needed
                 answers.append(data)
