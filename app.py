@@ -32,8 +32,11 @@ def make_vector(query):
 def search(query):
     def norm_list(lis):
         scores = [x[0] for x in lis]
-        ma = max(scores)
-        mi = min(scores)
+        try:
+            ma = max(scores)
+            mi = min(scores)
+        except:
+            ma=mi=0
         for i in range(len(lis)):
             lis[i][0] = (lis[i][0] - mi)/(ma - mi + 0.0001)
         return lis
@@ -95,10 +98,6 @@ def search(query):
 app = Flask(__name__)
 
 @app.route('/')
-def print_search_engine():
-    return 'Search Engine'
-
-@app.route('/index')
 def index():
     return flask.render_template('index.html')
 
@@ -117,22 +116,22 @@ def return_searches():
         # for i in total_text_dictionary[i[1]][2:]:
         #     to_return += "subanswer " + str(sub_answer) +' : ' + i + 2*'<br>'
         #     sub_answer+=1
-        answer_no+=1
+        
         result = es.search(index="test-database1",body={"query": {
         "terms": {
         "_id": ['{}'.format(i[1])]
         }
         }})
         for x in result['hits']['hits']:
-            to_return += '-'*50 + "Answer No:" + str(answer_no) + '-'*50
+            to_return += '-'*50 + "Question No:" + str(answer_no) + '-'*50
             to_return += 2*'<br>'
             title = (x['_source']['question'])
             question = (x['_source']['details'])
-            answer = (x['_source']['answers'])[0]
+            answer = (x['_source']['answers'])[1]
             to_return+= "Question : " + title + 2*'<br>'
             to_return += "Detail : " + question + 2*'<br>'
-            to_return +="Answer: " + answer + 2*'<br>'
-            
+            to_return +="Answer : " + answer + 2*'<br>'
+        answer_no+=1     
     return to_return
 
 if __name__ == '__main__':
