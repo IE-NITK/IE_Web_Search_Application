@@ -1,8 +1,192 @@
-{% for res in result %} {% for hit in res['hits']['hits'] %}
 
-<span>{{hit['_source']['question']}}</span>
-<br />
-<span >{{hit['_source']['answers'][1]}}</span>
-<br />
-{% endfor %}
-{% endfor %} 
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Find the Best Programming Courses & Tutorials </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="https://hackr.io/assets/images/code-images/code-favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="https://hackr.io/assets/images/code-images/code-favicon-16x16.png" sizes="16x16">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="static/css/aos.css">
+
+    <link rel="stylesheet" href="static/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="static/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="static/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="static/css/flaticon.css">
+    <link rel="stylesheet" href="static/css/icomoon.css">
+    <link rel="stylesheet" href="static/css/style.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+    ul.ui-autocomplete {
+    list-style: none;
+    list-style-type: none;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+.ui-widget {
+  font-family: Verdana,Arial,sans-serif;
+  font-size: 30px;
+
+}
+.ui-state-active a:visited {
+    color: 000000; /* any color you like */
+    background-color: #F0F8FF;
+
+}
+.ui-widget-content .ui-state-active {
+    color: 000000; /* any color you like */
+    background-color: #F0F8FF;
+}
+
+.ui-widget-content
+        {
+            border: 1px solid White;
+            color: #222222;
+            background-color: White;
+        }
+        .ui-widget
+        {
+            font-family: Verdana,Arial,sans-serif;
+            font-size: 15px;
+        }
+        .ui-menu
+        {
+            display: block;
+            float: left;
+            list-style: none outside none;
+            margin: 0;
+            padding: 2px;
+        }
+        .ui-autocomplete
+        {
+            cursor: default;
+            position: absolute;
+        }
+        .ui-menu .ui-menu-item
+        {
+            clear: left;
+            float: left;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        .ui-menu .ui-menu-item a
+        {
+            display: block;
+            padding: 3px 3px 3px 3px;
+            text-decoration: none;
+            cursor: pointer;
+            background-color: Green;
+        }
+        .ui-menu .ui-menu-item a:hover
+        {
+            display: block;
+            padding: 3px 3px 3px 3px;
+            text-decoration: none;
+            color: White;
+            cursor: pointer;
+            background-color: ButtonText;
+        }
+</style>
+
+  </head>
+  <body>
+
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="/">StackOverFlow Search Engine</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+    
+
+
+
+		<section id="tutorial_section" class="ftco-section bg-light">
+			<div id="tutorial_lists" class="container">
+				<div class="row">
+
+                    {% for res in result %}
+                    {% for hit in res['hits']['hits'] %}
+                        <div class="col-md-12 ftco-animate">
+                            <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                                  <div class="mb-4 mb-md-0 mr-5">
+                                    <div class="job-post-item-header d-flex align-items-center">
+                                        <div class="badge-wrap">
+                                                    <h2>{{hit['_source']['question']}}</h2>
+                                                    <br />
+                                                    <h3>{{hit['_source']['details']}}</h3>
+                                                    <br />
+                                                    <span >{{hit['_source']['answers'][1]}}</span>
+                                                     <br />
+                                            
+                                        </div>
+                                    </div>
+                                    
+                            </div>
+                        </div><!-- end -->
+                    {% endfor %}
+                    {% endfor %}
+
+                </div>
+            </div>
+		</section>
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="static/js/jquery.min.js"></script>
+
+  <script src="static/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="static/js/popper.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/js/jquery.easing.1.3.js"></script>
+  <script src="static/js/jquery.waypoints.min.js"></script>
+  <script src="static/js/jquery.stellar.min.js"></script>
+  <script src="static/js/owl.carousel.min.js"></script>
+  <script src="static/js/jquery.magnific-popup.min.js"></script>
+  <script src="static/js/aos.js"></script>
+  <script src="static/js/jquery.animateNumber.min.js"></script>
+  <script src="static/js/bootstrap-datepicker.js"></script>
+  <script src="static/js/jquery.timepicker.min.js"></script>
+  <script src="static/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="static/js/google-map.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script src="static/js/main.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+
+  </body>
+
+</html>
