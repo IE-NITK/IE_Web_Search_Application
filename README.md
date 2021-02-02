@@ -79,7 +79,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/IE-NITK/IE_Web_Search_Application)
 
-A website which saves u the hassle of searching through websites for ur queries by getting the top questions and corresponding answers repated to ur query without the trouble of having to jump through various links to reach the answers u want.
+A website which saves u the hassle of searching through websites for ur queries by getting the top questions and corresponding answers related to ur query without the trouble of having to jump through various links to reach the answers u want.
 
 
 ### Built With
@@ -98,18 +98,12 @@ A website which saves u the hassle of searching through websites for ur queries 
 ### Prerequisites and Installations
 
 
-* elastic search
-  ```sh
+* elastic search:
   install [elastic search](https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elasticsearch.html)
-  ```
-* flask
-  ```sh
+* flask:
   install [flask](https://flask.palletsprojects.com/en/1.1.x/installation/)
-  ```
-* universal encoder
-  ```sh
+* universal encoder:
   download [universal encoder zip ](https://tfhub.dev/google/universal-sentence-encoder/4) and them to a folder called universal_encoder.
-  ```
 
 ### INSTRUCTIONS
 1. cd into elasticsearch-7.10.1(the folder where u have installed elastic search) and run (`.\bin\elasticsearch.bat`)

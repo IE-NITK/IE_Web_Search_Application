@@ -1,192 +1,606 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
   <head>
-    <title> Find the Best Programming Courses & Tutorials </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="https://hackr.io/assets/images/code-images/code-favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="https://hackr.io/assets/images/code-images/code-favicon-16x16.png" sizes="16x16">
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Find the Best Programming Courses & Tutorials</title>
+    <!--  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://hackr.io/assets/images/code-images/code-favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://hackr.io/assets/images/code-images/code-favicon-16x16.png"
+      sizes="16x16"
+    />
 
-    <link rel="stylesheet" href="static/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/animate.css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-    <link rel="stylesheet" href="static/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="static/css/magnific-popup.css">
+    <!-- <link rel="stylesheet" href="static/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="static/css/animate.css" />
 
-    <link rel="stylesheet" href="static/css/aos.css">
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="static/css/magnific-popup.css" />
 
-    <link rel="stylesheet" href="static/css/ionicons.min.css">
+    <link rel="stylesheet" href="static/css/aos.css" />
 
-    <link rel="stylesheet" href="static/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="static/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="static/css/ionicons.min.css" />
 
+    <link rel="stylesheet" href="static/css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="static/css/jquery.timepicker.css" />
 
-    <link rel="stylesheet" href="static/css/flaticon.css">
-    <link rel="stylesheet" href="static/css/icomoon.css">
-    <link rel="stylesheet" href="static/css/style.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<style>
-    ul.ui-autocomplete {
-    list-style: none;
-    list-style-type: none;
-    padding: 10px;
-    margin: 10px;
-
-}
-
-.ui-widget {
-  font-family: Verdana,Arial,sans-serif;
-  font-size: 30px;
-
-}
-.ui-state-active a:visited {
-    color: 000000; /* any color you like */
-    background-color: #F0F8FF;
-
-}
-.ui-widget-content .ui-state-active {
-    color: 000000; /* any color you like */
-    background-color: #F0F8FF;
-}
-
-.ui-widget-content
-        {
-            border: 1px solid White;
-            color: #222222;
-            background-color: White;
-        }
-        .ui-widget
-        {
-            font-family: Verdana,Arial,sans-serif;
-            font-size: 15px;
-        }
-        .ui-menu
-        {
-            display: block;
-            float: left;
-            list-style: none outside none;
-            margin: 0;
-            padding: 2px;
-        }
-        .ui-autocomplete
-        {
-            cursor: default;
-            position: absolute;
-        }
-        .ui-menu .ui-menu-item
-        {
-            clear: left;
-            float: left;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-        }
-        .ui-menu .ui-menu-item a
-        {
-            display: block;
-            padding: 3px 3px 3px 3px;
-            text-decoration: none;
-            cursor: pointer;
-            background-color: Green;
-        }
-        .ui-menu .ui-menu-item a:hover
-        {
-            display: block;
-            padding: 3px 3px 3px 3px;
-            text-decoration: none;
-            color: White;
-            cursor: pointer;
-            background-color: ButtonText;
-        }
-</style>
-
+    <link rel="stylesheet" href="static/css/flaticon.css" />
+    <link rel="stylesheet" href="static/css/icomoon.css" />
+    <link rel="stylesheet" href="static/css/style.css" /> -->
+    <link rel="stylesheet" href="static/css/testing.css" />
+    <script src="static/js/testing.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <style>
+      body{
+        font-size: 15px;
+        scrollbar-color: var(--scrollbar) transparent !important;
+      }
+      pre {
+        font-size: 15px;
+        font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+          sans-serif;
+        line-height: 1.30769231;
+        color: var(--highlight-color);
+        background-color: gainsboro;
+        border-radius: 5px;
+        margin: 0;
+        padding: 12px;
+        overflow: auto;
+        scrollbar-color: var(--scrollbar) transparent !important;
+        max-height: 120px;
+        max-width: 700px;
+        border-bottom: 5px;
+        border-top: 5px;
+      }
+      code {
+        font-size: 15px;
+        font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+          sans-serif;
+        background-color: rgba(220, 220, 220, 0.822);
+      }
+      body,
+      .ul,
+      .li {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 1000px;
+      }
+      .ul {
+        background: #333 !important;
+        min-width: 180px !important;
+        height: 2657px !important;
+        box-sizing: border-box !important;
+        position: fixed !important;
+        padding-right: 0% !important;
+      }
+      .li {
+        list-style-type: none !important;
+        padding: 20px 0px 20px 0px !important;
+        border-bottom: 1px solid #222 !important;
+        transform: translateY(55px) !important;
+        text-align: center !important;
+        cursor: pointer !important;
+        color: aqua !important;
+      }
+      a {
+        color: rgb(59, 116, 202) !important;
+        text-decoration: none !important;
+        padding: 10px 10px !important;
+      }
+      .li.active {
+        background: #222 !important;
+        opacity: 1 !important;
+        color:red !important;
+      }
+      .li:not(.active):hover {
+        background: #2c2c2c !important;
+      }
+      img {
+        width: 30px;
+        opacity: 0.6;
+      }
+      .li:hover img,
+      .active img {
+        opacity: 1;
+      }
+      .black{
+        background-color: #333 !important;
+        min-height: 60px !important;
+        margin-bottom: 0px !important;
+        padding-bottom: 10px;
+      }
+      .middle{
+        text-align: center !important;
+      }
+      .white{
+        color: white !important;
+      }
+    </style>
   </head>
   <body>
-
-	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="/">StackOverFlow Search Engine</a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-
-	    </div>
-	  </nav>
-    <!-- END nav -->
-
-    
-
-
-
-		<section id="tutorial_section" class="ftco-section bg-light">
-			<div id="tutorial_lists" class="container">
-				<div class="row">
-
-                    {% for res in result %}
-                    {% for hit in res['hits']['hits'] %}
-                        <div class="col-md-12 ftco-animate">
-                            <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-                                  <div class="mb-4 mb-md-0 mr-5">
-                                    <div class="job-post-item-header d-flex align-items-center">
-                                        <div class="badge-wrap">
-                                                    <h2>{{hit['_source']['question']}}</h2>
-                                                    <br />
-                                                    <h3>{{hit['_source']['details']}}</h3>
-                                                    <br />
-                                                    <span >{{hit['_source']['answers'][1]}}</span>
-                                                     <br />
-                                            
-                                        </div>
-                                    </div>
-                                    
-                            </div>
-                        </div><!-- end -->
-                    {% endfor %}
-                    {% endfor %}
-
+      <nav
+        class="navbar navbar-dark ftco_navbar bg-dark ftco-navbar-light black navbar-fixed-top middle"
+        id="ftco-navbar"
+      >
+          <a class="navbar-brand white" href="/">StackOverFlow Search Engine</a>
+      </nav>
+      <div class="row">
+        <div class="col-2">
+          <!-- <ul class="ul nav nav-tabs">
+            <li class="nav-item li active"><a class="nav-link active" href="#question1" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">1</span></li>
+            <li class="nav-item li active"><a class="nav-link" href="#question2" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">2</span></li>
+            <li class="nav-item li active"><a class="nav-link" href="#question3" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">3</span></li>
+            <li class="nav-item li active"><a class="nav-link" href="#question4" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">4</span></li>
+            <li class="nav-item li active"><a class="nav-link" href="#question5" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">5</span></li>
+            <li class="nav-item li active"><a class="nav-link" href="#question6" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">6</span></li>
+            <li class="nav-item li active"><a class="nav-link" href="#question7" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">7</span></li>
+            <li class="nav-item li active"><a class="nav-link" href="#question8" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">8</span></li>
+            <li class="nav-item li active"><a class="nav-link" href="#question9" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">9</span></li>
+            <li class="nav-item li active"><a class="nav-link" href="#question10" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">10</span></li>
+          </ul> -->
+          <div class="ul nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="li nav-link" id="Question1" data-toggle="pill" role="tab" >Question1</a>
+            <a class="li nav-link" id="Question2" data-toggle="pill" role="tab" >Question2</a>
+            <a class="li nav-link" id="Question3" data-toggle="pill" role="tab" >Question3</a>
+            <a class="li nav-link" id="Question4" data-toggle="pill" role="tab" >Question4</a>
+            <a class="li nav-link" id="Question5" data-toggle="pill" role="tab" >Question5</a>
+            <a class="li nav-link" id="Question6" data-toggle="pill" role="tab" >Question6</a>
+            <a class="li nav-link" id="Question7" data-toggle="pill" role="tab" >Question7</a>
+            <a class="li nav-link" id="Question8" data-toggle="pill" role="tab" >Question8</a>
+            <a class="li nav-link" id="Question9" data-toggle="pill" role="tab" >Question9</a>
+            <a class="li nav-link" id="Question10" data-toggle="pill" role="tab" >Question10</a>
+          </div>
+        <!-- END nav -->
+        </div>
+        <div class="col-10 col-offset-1">
+          <section id="tutorial_section" class="ftco-section bg-light">
+            <div id="tutorial_lists" class="container">
+              <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane " role="tabpanel" id="question1">
+                  <h2>
+                    {% autoescape off %}{{result['0']['question']}}{% endautoescape%}
+                  </h2>
+                  <br />
+                  <h3>
+                    {% autoescape off %}{{result['0']['details']}}{% endautoescape %}
+                  </h3>
+                  <br />
+                  <span>{% autoescape off %}{{result['0']['answer']}}{% endautoescape%}</span>
+                  <br />
                 </div>
+                <div class="tab-pane " role="tabpanel" id="question2">
+                  <h2>
+                    {% autoescape off %}{{result['1']['question']}}{% endautoescape%}
+                  </h2>
+                  <br />
+                  <h3>
+                    {% autoescape off %}{{result['1']['details']}}{% endautoescape %}
+                  </h3>
+                  <br />
+                  <span>{% autoescape off %}{{result['1']['answer']}}{% endautoescape%}</span>
+                  <br />
+                </div>
+                <div class="tab-pane " role="tabpanel" id="question3">
+                  <h2>
+                    {% autoescape off %}{{result['2']['question']}}{% endautoescape%}
+                  </h2>
+                  <br />
+                  <h3>
+                    {% autoescape off %}{{result['2']['details']}}{% endautoescape %}
+                  </h3>
+                  <br />
+                  <span>{% autoescape off %}{{result['2']['answer']}}{% endautoescape%}</span>
+                  <br />
+                </div>
+                <div class="tab-pane " role="tabpanel" id="question4">
+                  <h2>
+                    {% autoescape off %}{{result['3']['question']}}{% endautoescape%}
+                  </h2>
+                  <br />
+                  <h3>
+                    {% autoescape off %}{{result['3']['details']}}{% endautoescape %}
+                  </h3>
+                  <br />
+                  <span>{% autoescape off %}{{result['3']['answer']}}{% endautoescape%}</span>
+                  <br />
+                </div>
+                <div class="tab-pane " role="tabpanel" id="question5">
+                  <h2>
+                    {% autoescape off %}{{result['4']['question']}}{% endautoescape%}
+                  </h2>
+                  <br />
+                  <h3>
+                    {% autoescape off %}{{result['4']['details']}}{% endautoescape %}
+                  </h3>
+                  <br />
+                  <span>{% autoescape off %}{{result['4']['answer']}}{% endautoescape%}</span>
+                  <br />
+                </div>
+                <div class="tab-pane " role="tabpanel" id="question6">
+                  <h2>
+                    {% autoescape off %}{{result['5']['question']}}{% endautoescape%}
+                  </h2>
+                  <br />
+                  <h3>
+                    {% autoescape off %}{{result['5']['details']}}{% endautoescape %}
+                  </h3>
+                  <br />
+                  <span>{% autoescape off %}{{result['5']['answer']}}{% endautoescape%}</span>
+                  <br />
+                </div>
+                <div class="tab-pane " role="tabpanel" id="question7">
+                  <h2>
+                    {% autoescape off %}{{result['6']['question']}}{% endautoescape%}
+                  </h2>
+                  <br />
+                  <h3>
+                    {% autoescape off %}{{result['6']['details']}}{% endautoescape %}
+                  </h3>
+                  <br />
+                  <span>{% autoescape off %}{{result['6']['answer']}}{% endautoescape%}</span>
+                  <br />
+                </div>
+                <div class="tab-pane " role="tabpanel" id="question8">
+                  <h2>
+                    {% autoescape off %}{{result['7']['question']}}{% endautoescape%}
+                  </h2>
+                  <br />
+                  <h3>
+                    {% autoescape off %}{{result['7']['details']}}{% endautoescape %}
+                  </h3>
+                  <br />
+                  <span>{% autoescape off %}{{result['7']['answer']}}{% endautoescape%}</span>
+                  <br />
+                </div>
+                <div class="tab-pane " role="tabpanel" id="question9">
+                  <h2>
+                    {% autoescape off %}{{result['8']['question']}}{% endautoescape%}
+                  </h2>
+                  <br />
+                  <h3>
+                    {% autoescape off %}{{result['8']['details']}}{% endautoescape %}
+                  </h3>
+                  <br />
+                  <span>{% autoescape off %}{{result['8']['answer']}}{% endautoescape%}</span>
+                  <br />
+                </div>
+                <div class="tab-pane " role="tabpanel" id="question10">
+                  <h2>
+                    {% autoescape off %}{{result['9']['question']}}{% endautoescape%}
+                  </h2>
+                  <br />
+                  <h3>
+                    {% autoescape off %}{{result['9']['details']}}{% endautoescape %}
+                  </h3>
+                  <br />
+                  <span>{% autoescape off %}{{result['9']['answer']}}{% endautoescape%}</span>
+                  <br />
+                </div>
+              </div>
             </div>
-		</section>
+          </section>
+        </div>
+      
+      </div>
+      
 
+    <!-- loader -->
+    <!--<div id="ftco-loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle
+          class="path-bg"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke="#eeeeee"
+        />
+        <circle
+          class="path"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          stroke="#F96D00"
+        />
+      </svg>
+    </div>-->
 
+    <!-- <script src="static/js/jquery.min.js"></script>
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="static/js/jquery.min.js"></script>
-
-  <script src="static/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="static/js/popper.min.js"></script>
-  <script src="static/js/bootstrap.min.js"></script>
-  <script src="static/js/jquery.easing.1.3.js"></script>
-  <script src="static/js/jquery.waypoints.min.js"></script>
-  <script src="static/js/jquery.stellar.min.js"></script>
-  <script src="static/js/owl.carousel.min.js"></script>
-  <script src="static/js/jquery.magnific-popup.min.js"></script>
-  <script src="static/js/aos.js"></script>
-  <script src="static/js/jquery.animateNumber.min.js"></script>
-  <script src="static/js/bootstrap-datepicker.js"></script>
-  <script src="static/js/jquery.timepicker.min.js"></script>
-  <script src="static/js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="static/js/google-map.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <script src="static/js/main.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-
-
+    <script src="static/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery.easing.1.3.js"></script>
+    <script src="static/js/jquery.waypoints.min.js"></script>
+    <script src="static/js/jquery.stellar.min.js"></script>
+    <script src="static/js/owl.carousel.min.js"></script>
+    <script src="static/js/jquery.magnific-popup.min.js"></script>
+    <script src="static/js/aos.js"></script>
+    <script src="static/js/jquery.animateNumber.min.js"></script>
+    <script src="static/js/bootstrap-datepicker.js"></script>
+    <script src="static/js/jquery.timepicker.min.js"></script>
+    <script src="static/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="static/js/google-map.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="static/js/main.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
+  <script>
+     
+    $(document).ready(function() {
+      $('nav-link').click(function(){
+        $('nav-link').removeClass("active");
+        $(this).addClass("active");
+    }); 
+      $("#Question1").addClass("active");
+      $("#question1").show();
+      $("#question2").hide();
+      $("#question3").hide();
+      $("#question4").hide();
+      $("#question5").hide();
+      $("#question6").hide();
+      $("#question7").hide();
+      $("#question8").hide();
+      $("#question9").hide();
+      $("#question10").hide();
+    
+      $("#Question1").click(function() {
+        $("#question1").show();
+      $("#question2").hide();
+      $("#question3").hide();
+      $("#question4").hide();
+      $("#question5").hide();
+      $("#question6").hide();
+      $("#question7").hide();
+      $("#question8").hide();
+      $("#question9").hide();
+      $("#question10").hide();
+      $("#Question1").addClass("active");
+      $("#Question2").removeClass("active");
+      $("#Question3").removeClass("active");
+      $("#Question4").removeClass("active");
+      $("#Question5").removeClass("active");
+      $("#Question6").removeClass("active");
+      $("#Question7").removeClass("active");
+      $("#Question8").removeClass("active");
+      $("#Question9").removeClass("active");
+      $("#Question10").removeClass("active");
+      });
+    
+      $("#Question2").click(function() {
+        $("#question1").hide();
+      $("#question2").show();
+      $("#question3").hide();
+      $("#question4").hide();
+      $("#question5").hide();
+      $("#question6").hide();
+      $("#question7").hide();
+      $("#question8").hide();
+      $("#question9").hide();
+      $("#question10").hide();
+      $("#Question2").addClass("active");
+      $("#Question1").removeClass("active");
+      $("#Question3").removeClass("active");
+      $("#Question4").removeClass("active");
+      $("#Question5").removeClass("active");
+      $("#Question6").removeClass("active");
+      $("#Question7").removeClass("active");
+      $("#Question8").removeClass("active");
+      $("#Question9").removeClass("active");
+      $("#Question10").removeClass("active");
+      });
+    
+      $("#Question3").click(function() {
+        $("#question1").hide();
+      $("#question2").hide();
+      $("#question3").show();
+      $("#question4").hide();
+      $("#question5").hide();
+      $("#question6").hide();
+      $("#question7").hide();
+      $("#question8").hide();
+      $("#question9").hide();
+      $("#question10").hide();
+      $("#Question3").addClass("active");
+      $("#Question2").removeClass("active");
+      $("#Question1").removeClass("active");
+      $("#Question4").removeClass("active");
+      $("#Question5").removeClass("active");
+      $("#Question6").removeClass("active");
+      $("#Question7").removeClass("active");
+      $("#Question8").removeClass("active");
+      $("#Question9").removeClass("active");
+      $("#Question10").removeClass("active");
+      });
+    
+      $("#Question4").click(function() {
+        $("#question1").hide();
+        $("#question2").hide();
+        $("#question3").hide();
+        $("#question4").show();
+        $("#question5").hide();
+        $("#question6").hide();
+        $("#question7").hide();
+        $("#question8").hide();
+        $("#question9").hide();
+        $("#question10").hide();
+        $("#Question4").addClass("active");
+      $("#Question2").removeClass("active");
+      $("#Question3").removeClass("active");
+      $("#Question1").removeClass("active");
+      $("#Question5").removeClass("active");
+      $("#Question6").removeClass("active");
+      $("#Question7").removeClass("active");
+      $("#Question8").removeClass("active");
+      $("#Question9").removeClass("active");
+      $("#Question10").removeClass("active");
+      });
 
+      $("#Question5").click(function() {
+        $("#question1").hide();
+        $("#question2").hide();
+        $("#question3").hide();
+        $("#question4").hide();
+        $("#question5").show();
+        $("#question6").hide();
+        $("#question7").hide();
+        $("#question8").hide();
+        $("#question9").hide();
+        $("#question10").hide();
+        $("#Question5").addClass("active");
+      $("#Question2").removeClass("active");
+      $("#Question3").removeClass("active");
+      $("#Question4").removeClass("active");
+      $("#Question1").removeClass("active");
+      $("#Question6").removeClass("active");
+      $("#Question7").removeClass("active");
+      $("#Question8").removeClass("active");
+      $("#Question9").removeClass("active");
+      $("#Question10").removeClass("active");
+      });
+      $("#Question6").click(function() {
+        $("#question1").hide();
+        $("#question2").hide();
+        $("#question3").hide();
+        $("#question4").hide();
+        $("#question5").hide();
+        $("#question6").show();
+        $("#question7").hide();
+        $("#question8").hide();
+        $("#question9").hide();
+        $("#question10").hide();
+        $("#Question6").addClass("active");
+      $("#Question2").removeClass("active");
+      $("#Question3").removeClass("active");
+      $("#Question4").removeClass("active");
+      $("#Question5").removeClass("active");
+      $("#Question1").removeClass("active");
+      $("#Question7").removeClass("active");
+      $("#Question8").removeClass("active");
+      $("#Question9").removeClass("active");
+      $("#Question10").removeClass("active");
+      });
+      $("#Question7").click(function() {
+        $("#question1").hide();
+        $("#question2").hide();
+        $("#question3").hide();
+        $("#question4").hide();
+        $("#question5").hide();
+        $("#question6").hide();
+        $("#question7").show();
+        $("#question8").hide();
+        $("#question9").hide();
+        $("#question10").hide();
+        $("#Question7").addClass("active");
+      $("#Question2").removeClass("active");
+      $("#Question3").removeClass("active");
+      $("#Question4").removeClass("active");
+      $("#Question5").removeClass("active");
+      $("#Question6").removeClass("active");
+      $("#Question1").removeClass("active");
+      $("#Question8").removeClass("active");
+      $("#Question9").removeClass("active");
+      $("#Question10").removeClass("active");
+      });
+      $("#Question8").click(function() {
+        $("#question1").hide();
+        $("#question2").hide();
+        $("#question3").hide();
+        $("#question4").hide();
+        $("#question5").hide();
+        $("#question6").hide();
+        $("#question7").hide();
+        $("#question8").show();
+        $("#question9").hide();
+        $("#question10").hide();
+        $("#Question8").addClass("active");
+      $("#Question2").removeClass("active");
+      $("#Question3").removeClass("active");
+      $("#Question4").removeClass("active");
+      $("#Question5").removeClass("active");
+      $("#Question6").removeClass("active");
+      $("#Question7").removeClass("active");
+      $("#Question1").removeClass("active");
+      $("#Question9").removeClass("active");
+      $("#Question10").removeClass("active");
+      });
+      $("#Question9").click(function() {
+        $("#question1").hide();
+        $("#question2").hide();
+        $("#question3").hide();
+        $("#question4").hide();
+        $("#question5").hide();
+        $("#question6").hide();
+        $("#question7").hide();
+        $("#question8").hide();
+        $("#question9").show();
+        $("#question10").hide();
+        $("#Question9").addClass("active");
+      $("#Question2").removeClass("active");
+      $("#Question3").removeClass("active");
+      $("#Question4").removeClass("active");
+      $("#Question5").removeClass("active");
+      $("#Question6").removeClass("active");
+      $("#Question7").removeClass("active");
+      $("#Question8").removeClass("active");
+      $("#Question1").removeClass("active");
+      $("#Question10").removeClass("active");
+      });
+      $("#Question10").click(function() {
+        $("#question1").hide();
+        $("#question2").hide();
+        $("#question3").hide();
+        $("#question4").hide();
+        $("#question5").hide();
+        $("#question6").hide();
+        $("#question7").hide();
+        $("#question8").hide();
+        $("#question9").hide();
+        $("#question10").show();
+        $("#Question10").addClass("active");
+      $("#Question2").removeClass("active");
+      $("#Question3").removeClass("active");
+      $("#Question4").removeClass("active");
+      $("#Question5").removeClass("active");
+      $("#Question6").removeClass("active");
+      $("#Question7").removeClass("active");
+      $("#Question8").removeClass("active");
+      $("#Question9").removeClass("active");
+      $("#Question1").removeClass("active");
+      });
+    });
+  </script>
 </html>

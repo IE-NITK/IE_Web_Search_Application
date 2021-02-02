@@ -6,6 +6,7 @@ import sys
 from flask import Flask, request
 import tensorflow as tf
 import flask
+import json
 
 # code reference from the elastic search documentation 
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
@@ -45,7 +46,7 @@ def search(query):
             'query':{ 'match':{"question":query } }
             }
 
-    res= es.search(index='test-database1',body=request)
+    res= es.search(index='ie-3',body=request)
     l1 = []
     for hit in res['hits']['hits']:
         l1.append([hit['_score'] , hit['_id']])
@@ -65,7 +66,7 @@ def search(query):
              }
     }
 
-    res= es.search(index='test-database1',body=request)
+    res= es.search(index='ie-3',body=request)
     l2 = []
     for hit in res['hits']['hits']:
         l2.append([hit['_score'] , hit['_id']])
@@ -103,7 +104,8 @@ def index():
 
 @app.route('/return_searches', methods=['POST'])
 def return_searches():
-    result_sup = []
+    j=0
+    result_sup = {}
     #answer_no = 1
     #to_return = ''
     for i in search(request.form.to_dict()['query']):
@@ -118,12 +120,20 @@ def return_searches():
         #     to_return += "subanswer " + str(sub_answer) +' : ' + i + 2*'<br>'
         #     sub_answer+=1
         
-        result = es.search(index="test-database1",body={"query": {
+        result = es.search(index="ie-3",body={"query": {
         "terms": {
         "_id": ['{}'.format(i[1])]
         }
         }})
-        result_sup.append(result)
+        for x in result['hits']['hits']:
+            question = x['_source']['question']
+            details = x['_source']['details']
+            answer = x['_source']['answers']
+        result_sup[str(j)] = {}
+        result_sup[str(j)]["question"] = question
+        result_sup[str(j)]["details"] = details
+        result_sup[str(j)]["answer"] = answer
+        j=j+1
         #result_sup[0]['result]['hits']['hits']['_source']['question']
         #for x in result['hits']['hits']:
             #to_return += '-'*50 + "Question No:" + str(answer_no) + '-'*50
@@ -134,10 +144,8 @@ def return_searches():
             #to_return+= "Question : " + title + 2*'<br>'
             #to_return += "Detail : " + question + 2*'<br>'
            # to_return +="Answer : " + answer + 2*'<br>'
-        #answer_no+=1     
+        #answer_no+=1
     return flask.render_template('search.html',result=result_sup)
-
-
     
 if __name__ == '__main__':
     app.run( port=8080)
