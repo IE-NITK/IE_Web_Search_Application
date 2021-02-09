@@ -122,10 +122,6 @@
       .li:not(.active):hover {
         background: #2c2c2c !important;
       }
-      img {
-        width: 30px;
-        opacity: 0.6;
-      }
       .li:hover img,
       .active img {
         opacity: 1;
@@ -141,6 +137,23 @@
       }
       .white{
         color: white !important;
+      }
+      .source{
+        text-align: right;
+        font-size:  10px;
+      }
+      .details{
+        font-size: 25px !important;
+        font-style:italic !important;
+      }
+      .questions{
+        font-size: 30px !important;
+      }
+      .answers{
+        font-size: 20px !important;
+      }
+      .grid--cell{
+        display: none;
       }
     </style>
   </head>
@@ -166,16 +179,16 @@
             <li class="nav-item li active"><a class="nav-link" href="#question10" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">10</span></li>
           </ul> -->
           <div class="ul nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="li nav-link" id="Question1" data-toggle="pill" role="tab" >Question1</a>
-            <a class="li nav-link" id="Question2" data-toggle="pill" role="tab" >Question2</a>
-            <a class="li nav-link" id="Question3" data-toggle="pill" role="tab" >Question3</a>
-            <a class="li nav-link" id="Question4" data-toggle="pill" role="tab" >Question4</a>
-            <a class="li nav-link" id="Question5" data-toggle="pill" role="tab" >Question5</a>
-            <a class="li nav-link" id="Question6" data-toggle="pill" role="tab" >Question6</a>
-            <a class="li nav-link" id="Question7" data-toggle="pill" role="tab" >Question7</a>
-            <a class="li nav-link" id="Question8" data-toggle="pill" role="tab" >Question8</a>
-            <a class="li nav-link" id="Question9" data-toggle="pill" role="tab" >Question9</a>
-            <a class="li nav-link" id="Question10" data-toggle="pill" role="tab" >Question10</a>
+            <a class="li nav-link" id="Question1" data-toggle="pill" role="tab" ><span class="badge badge-danger">Top</span> Question <span class="badge badge-primary">1</span></a>
+            <a class="li nav-link" id="Question2" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">2</span></a>
+            <a class="li nav-link" id="Question3" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">3</span></a>
+            <a class="li nav-link" id="Question4" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">4</span></a>
+            <a class="li nav-link" id="Question5" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">5</span></a>
+            <a class="li nav-link" id="Question6" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">6</span></a>
+            <a class="li nav-link" id="Question7" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">7</span></a>
+            <a class="li nav-link" id="Question8" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">8</span></a>
+            <a class="li nav-link" id="Question9" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">9</span></a>
+            <a class="li nav-link" id="Question10" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">10</span></a>
           </div>
         <!-- END nav -->
         </div>
@@ -184,128 +197,129 @@
             <div id="tutorial_lists" class="container">
               <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane " role="tabpanel" id="question1">
-                  <h2>
+                  <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['0']['question']}}{% endautoescape%}
                   </h2>
                   <br />
-                  <h3>
+                  <h3 class = "details">
                     {% autoescape off %}{{result['0']['details']}}{% endautoescape %}
                   </h3>
                   <br />
-                  <span>{% autoescape off %}{{result['0']['answer']}}{% endautoescape%}</span>
+                  <span class = "answers">A) {% autoescape off %}{{result['0']['answer']}}{% endautoescape%}</span>
                   <br />
                 </div>
                 <div class="tab-pane " role="tabpanel" id="question2">
-                  <h2>
+                  <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['1']['question']}}{% endautoescape%}
                   </h2>
                   <br />
-                  <h3>
+                  <h3 class = "details">
                     {% autoescape off %}{{result['1']['details']}}{% endautoescape %}
                   </h3>
                   <br />
-                  <span>{% autoescape off %}{{result['1']['answer']}}{% endautoescape%}</span>
+                  <span class = "answers">A) {% autoescape off %}{{result['1']['answer']}}{% endautoescape%}</span>
                   <br />
                 </div>
                 <div class="tab-pane " role="tabpanel" id="question3">
-                  <h2>
+                  <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['2']['question']}}{% endautoescape%}
                   </h2>
                   <br />
-                  <h3>
+                  <h3 class = "details">
                     {% autoescape off %}{{result['2']['details']}}{% endautoescape %}
                   </h3>
                   <br />
-                  <span>{% autoescape off %}{{result['2']['answer']}}{% endautoescape%}</span>
+                  <span class = "answers">A) {% autoescape off %}{{result['2']['answer']}}{% endautoescape%}</span>
                   <br />
                 </div>
                 <div class="tab-pane " role="tabpanel" id="question4">
-                  <h2>
-                    {% autoescape off %}{{result['3']['question']}}{% endautoescape%}
+                  <h2 class = "questions">Q) 
+                    {% autoescape off %} {{result['3']['question']}}{% endautoescape%}
                   </h2>
                   <br />
-                  <h3>
+                  <h3 class = "details">
                     {% autoescape off %}{{result['3']['details']}}{% endautoescape %}
                   </h3>
                   <br />
-                  <span>{% autoescape off %}{{result['3']['answer']}}{% endautoescape%}</span>
+                  <span class = "answers">A) {% autoescape off %}{{result['3']['answer']}}{% endautoescape%}</span>
                   <br />
                 </div>
                 <div class="tab-pane " role="tabpanel" id="question5">
-                  <h2>
+                  <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['4']['question']}}{% endautoescape%}
                   </h2>
                   <br />
-                  <h3>
+                  <h3 class = "details">
                     {% autoescape off %}{{result['4']['details']}}{% endautoescape %}
                   </h3>
                   <br />
-                  <span>{% autoescape off %}{{result['4']['answer']}}{% endautoescape%}</span>
+                  <span class = "answers">A) {% autoescape off %}{{result['4']['answer']}}{% endautoescape%}</span>
                   <br />
                 </div>
                 <div class="tab-pane " role="tabpanel" id="question6">
-                  <h2>
+                  <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['5']['question']}}{% endautoescape%}
                   </h2>
                   <br />
-                  <h3>
+                  <h3 class = "details">
                     {% autoescape off %}{{result['5']['details']}}{% endautoescape %}
                   </h3>
                   <br />
-                  <span>{% autoescape off %}{{result['5']['answer']}}{% endautoescape%}</span>
+                  <span class = "answers">A) {% autoescape off %}{{result['5']['answer']}}{% endautoescape%}</span>
                   <br />
                 </div>
                 <div class="tab-pane " role="tabpanel" id="question7">
-                  <h2>
+                  <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['6']['question']}}{% endautoescape%}
                   </h2>
                   <br />
-                  <h3>
+                  <h3 class = "details">
                     {% autoescape off %}{{result['6']['details']}}{% endautoescape %}
                   </h3>
                   <br />
-                  <span>{% autoescape off %}{{result['6']['answer']}}{% endautoescape%}</span>
+                  <span class = "answers">A) {% autoescape off %}{{result['6']['answer']}}{% endautoescape%}</span>
                   <br />
                 </div>
                 <div class="tab-pane " role="tabpanel" id="question8">
-                  <h2>
+                  <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['7']['question']}}{% endautoescape%}
                   </h2>
                   <br />
-                  <h3>
+                  <h3 class = "details">
                     {% autoescape off %}{{result['7']['details']}}{% endautoescape %}
                   </h3>
                   <br />
-                  <span>{% autoescape off %}{{result['7']['answer']}}{% endautoescape%}</span>
+                  <span class = "answers">A) {% autoescape off %}{{result['7']['answer']}}{% endautoescape%}</span>
                   <br />
                 </div>
                 <div class="tab-pane " role="tabpanel" id="question9">
-                  <h2>
+                  <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['8']['question']}}{% endautoescape%}
                   </h2>
                   <br />
-                  <h3>
+                  <h3 class = "details">
                     {% autoescape off %}{{result['8']['details']}}{% endautoescape %}
                   </h3>
                   <br />
-                  <span>{% autoescape off %}{{result['8']['answer']}}{% endautoescape%}</span>
+                  <span class = "answers">A) {% autoescape off %}{{result['8']['answer']}}{% endautoescape%}</span>
                   <br />
                 </div>
                 <div class="tab-pane " role="tabpanel" id="question10">
-                  <h2>
+                  <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['9']['question']}}{% endautoescape%}
                   </h2>
                   <br />
-                  <h3>
+                  <h3 class = "details">
                     {% autoescape off %}{{result['9']['details']}}{% endautoescape %}
                   </h3>
                   <br />
-                  <span>{% autoescape off %}{{result['9']['answer']}}{% endautoescape%}</span>
+                  <span class = "answers">A) {% autoescape off %}{{result['9']['answer']}}{% endautoescape%}</span>
                   <br />
                 </div>
               </div>
             </div>
           </section>
+          <div class="source">Source: <a href="https://stackoverflow.com/" target="_blank">Stackoverflow</a></div>
         </div>
       
       </div>
