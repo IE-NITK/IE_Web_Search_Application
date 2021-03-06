@@ -199,6 +199,9 @@
                 <div class="tab-pane " role="tabpanel" id="question1">
                   <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['0']['question']}}{% endautoescape%}
+                    {% autoescape off %}{{result['0']['upvotes']}}{% endautoescape%}
+                    <br>
+                    {% autoescape off %}{{result['0']['tags']}}{% endautoescape%}
                   </h2>
                   <br />
                   <h3 class = "details">
@@ -324,7 +327,7 @@
       
       </div>
       
-
+   
     <!-- loader -->
     <!--<div id="ftco-loader" class="show fullscreen">
       <svg class="circular" width="48px" height="48px">

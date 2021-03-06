@@ -130,7 +130,7 @@
 </head>
 
 <body>
-
+<!-- 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="/">Name</a>
@@ -141,10 +141,10 @@
 
 
     </div>
-  </nav>
+  </nav> -->
   <!-- END nav -->
 
-  <div class="hero-wrap js-fullheight" style="background-image: url('static/images/bg1.jpg');" data-stellar-background-ratio="0.5">
+  <div class="hero-wrap js-fullheight" style="background-image: url('static/images/bg3.jpeg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
@@ -180,13 +180,20 @@
                             <div class="form-field">
                               <input id="submit" type="submit" value="Search" class="form-control btn btn-primary">
                             </div>
+
                           </div>
                         </div>
 
-
-
-
                       </div>
+                    </form>
+                    <form action="/image_search" method="GET" class="search-job">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <div class="form-field">
+                              <input id="submit" type="submit" value="Image Search" class="form-control btn btn-primary">
+                            </div>
+                          </div>
+                        </div>
                     </form>
                   </div>
 
@@ -200,6 +207,24 @@
     </div>
   </div>
 
+
+<!--   
+  <h2>Scan your own image!</h2>
+
+  <div class="text-center">
+      <form action="scanner" method="POST" enctype=multipart/form-data>
+          <div class="input-group">
+              <div class="custom-file">
+                  <input type="file" name="file"  id="inputGroupFile01"
+                          accept="image/*">
+                  <label for="inputGroupFile01">Choose file</label>
+              </div>
+          </div>
+
+          <br>
+          <button type="submit" class="btn btn-raised btn-primary">Scan Image</button>
+      </form>
+  </div> -->
 
 
   <!-- <section id="tutorial_section" class="ftco-section bg-light">

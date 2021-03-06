@@ -26,6 +26,7 @@ structure = {
             },
             "details": {
                 "type": "text",
+                # "enabled": false,
                 "fields": {
                     "keyword": {
                         "type": "keyword",
@@ -42,8 +43,28 @@ structure = {
                     }
                 }
             },
+            "tags": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "upvotes": {
+                "type": "text",
+                # "enabled": false,
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
             "total_vectors": {
                 "type": "dense_vector",
+                # "enabled": false,
                 "dims": 512
             }
         }
@@ -64,10 +85,10 @@ def make_vector(query):
 
 class stackoverflow(scrapy.Spider):
     i = 0
-    page_no = 2
+    page_no = 1
     name = 'stackoverflow'
     start_urls = [
-        "https://stackoverflow.com/questions?tab=frequent&page={}".format(
+        "https://stackoverflow.com/questions?sort=MostVotes&edited=true&page={}".format(
             page_no)
     ]
 
@@ -80,8 +101,8 @@ class stackoverflow(scrapy.Spider):
             # print(link)
             yield response.follow(url=base_url + link, callback=self.parse_question)
         # if self.page_no<50:
-         #   self.page_no += 1
-          #  yield scrapy.Request(url="https://stackoverflow.com/questions?tab=frequent&page={}".format(self.page_no), callback=self.parse)
+        self.page_no += 1
+        yield scrapy.Request(url="https://stackoverflow.com/questions?sort=MostVotes&edited=true&page={}".format(self.page_no), callback=self.parse)
 
     def parse_question(self, response):
         items = QuestionListItem()
@@ -90,7 +111,10 @@ class stackoverflow(scrapy.Spider):
             "div h1 a.question-hyperlink::text").extract_first()
         details = data.css("div.question div.s-prose").extract()
         answers_raw = data.css('#answers')
-
+        tags = response.css('a.post-tag::text').extract()
+        tags_set = set(tags)
+        tags = list(tags_set)
+        upvotes =  response.css("div.js-vote-count::text").extract_first()
         if answers_raw:
             answers = ''
             raw_data = answers_raw.css("div.s-prose").extract_first()
@@ -103,12 +127,15 @@ class stackoverflow(scrapy.Spider):
             concat_details = concat_details + detail
         items['details'] = concat_details
         items['answers'] = answers
+        items['upvotes'] = upvotes
+        items['tags'] = tags
         items['total_vectors'] = make_vector(items['question'])
-
         doc = {
             'question': items['question'],
             'details': items['details'],
             'answers': items['answers'],
+            'tags': items['tags'],
+            'upvotes':items['upvotes'],
             'total_vectors': items['total_vectors']
         }
         res = es.index(index="ie-3", body=doc)
