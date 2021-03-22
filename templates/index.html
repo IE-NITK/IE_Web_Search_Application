@@ -16,7 +16,7 @@
 <html lang="en">
 
 <head>
-  <title> Search for technical doubts  </title>
+  <title> Search for technical doubts </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" type="image/png" href="https://hackr.io/assets/images/code-images/code-favicon-32x32.png"
@@ -130,7 +130,7 @@
 </head>
 
 <body>
-<!-- 
+  <!-- 
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="/">Name</a>
@@ -144,7 +144,8 @@
   </nav> -->
   <!-- END nav -->
 
-  <div class="hero-wrap js-fullheight" style="background-image: url('static/images/bg3.jpeg');" data-stellar-background-ratio="0.5">
+  <div class="hero-wrap js-fullheight" style="background-image: url('static/images/bg3.jpeg');"
+    data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
@@ -152,7 +153,8 @@
         <div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
           <p class="mb-4 mt-5 pt-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We have <span
               class="number" data-number="1500000000">0</span> questions from stack overflow</p>
-          <h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Find the question You are looking for!!</h1>
+          <h1 class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Find the question You are
+            looking for!!</h1>
 
           <div class="ftco-search">
             <div class="row">
@@ -174,7 +176,7 @@
                             </div>
                           </div>
                         </div>
-
+                        
                         <div class="col-md-3">
                           <div class="form-group">
                             <div class="form-field">
@@ -183,17 +185,17 @@
 
                           </div>
                         </div>
-
+                        <div id="result"></div>
                       </div>
                     </form>
                     <form action="/image_search" method="GET" class="search-job">
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <div class="form-field">
-                              <input id="submit" type="submit" value="Image Search" class="form-control btn btn-primary">
-                            </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <div class="form-field">
+                            <input id="submit" type="submit" value="Image Search" class="form-control btn btn-primary">
                           </div>
                         </div>
+                      </div>
                     </form>
                   </div>
 
@@ -208,7 +210,7 @@
   </div>
 
 
-<!--   
+  <!--   
   <h2>Scan your own image!</h2>
 
   <div class="text-center">
@@ -294,7 +296,62 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="static/js/main.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    const $source = document.querySelector('#user_input');
+    const $result = document.querySelector('#result');
 
+    const typeHandler = function (e) {
+      //$result.innerHTML = e.target.value;
+      // console.log(e.target.value);
+
+      $.ajax({
+        url: "/pipe",
+        type: 'POST',
+        cache: false,
+        data: { 'data': e.target.value },
+        success: function (html) {
+          console.log(html)
+          //var data = html.aggregations.auto_complete.buckets
+          var data = html
+          //console.log(data)
+          var _ = []
+          for (x in html['hits']['hits']) {
+            _.push(html.hits.hits[x]._source.question)
+          }
+
+          // $.each(data, (index, value) => {
+          //   _.push(value.key)
+          // });
+          console.log(_)
+          for (i in _) {
+            $result.innerHTML += i + "\n"
+          }
+
+          $("#user_input").autocomplete({
+            source: _
+          });
+
+        }
+      });
+    }
+
+    $source.addEventListener('input', typeHandler) // register for oninput
+    $source.addEventListener('propertychange', typeHandler) // for IE8
+
+    function btn_submit() {
+      sessionStorage.setItem('title', $("#user_input").val())
+    }
+
+
+    $(document).ready(function () {
+
+      var data = sessionStorage.getItem('title')
+      $("#user_input").val(data);
+    });
+
+
+
+  </script>
 
 
 </body>

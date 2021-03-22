@@ -7,11 +7,11 @@ import datetime
 import io
 import pytesseract
 from PIL import Image
+import requests
 from flask import Flask, request, render_template, redirect, url_for, session
 import tensorflow as tf
 import flask
 import json
-
 
 
 # code reference from the elastic search documentation 
@@ -89,6 +89,24 @@ def search(query):
     
     inverse_temp_doc = [(i[1] , i[0])  for i in temp_doc.items()]
     inverse_temp_doc = sorted(inverse_temp_doc , reverse = True)
+
+
+    request1 =  {
+    "query": {
+        "match": {
+            "question": {"query": "gi", "analyzer": "standard"}
+        }
+    }
+    }
+    res1= es.search(index='ie-3',body=request1)
+    l9 = []
+    
+    for x in res1['hits']['hits']:
+       l9.append(x['_source']['question'])
+ 
+    #print(res1)
+    print(l9)
+
     return inverse_temp_doc[:10]
 
 # for i in search(" Sql  [duplicate] "):
@@ -229,6 +247,16 @@ def result():
         )
     else:
         return "Wrong request method."
+
+@app.route('/pipe', methods=["GET", "POST"])
+def pipe():
+    data = request.form.get("data")
+    payload = {}
+    headers= {}
+    url = "http://127.0.0.1:4000/autocomplete?query="+str(data)
+    print(url)
+    response = requests.request("GET", url, headers=headers, data = payload)
+    return response.json()
     
 if __name__ == '__main__':
     pytesseract.pytesseract.tesseract_cmd = r'D:\Pytesseract\tesseract'

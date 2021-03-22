@@ -13,6 +13,24 @@ else:
 
 
 structure = {
+    "settings": {
+            "analysis": {
+                "filter": {
+                "autocomplete_filter": {
+                "type": "edge_ngram",
+                "min_gram": 1,
+                "max_gram": 5
+                }
+            },
+                "analyzer": {
+                    "autocomplete_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "standard",
+                    "filter": [ "lowercase", "autocomplete_filter"]
+                }
+            }
+        }
+    },    
     "mappings": {
         "properties": {
             "answers": {
@@ -41,7 +59,8 @@ structure = {
                         "type": "keyword",
                         "ignore_above": 256
                     }
-                }
+                },
+                "analyzer": "autocomplete_analyzer"
             },
             "tags": {
                 "type": "text",
@@ -68,6 +87,7 @@ structure = {
                 "dims": 512
             }
         }
+
     }
 }
 res = es.indices.create(index='ie-3', ignore=400, body=structure)

@@ -199,9 +199,20 @@
                 <div class="tab-pane " role="tabpanel" id="question1">
                   <h2 class = "questions">Q) 
                     {% autoescape off %}{{result['0']['question']}}{% endautoescape%}
-                    {% autoescape off %}{{result['0']['upvotes']}}{% endautoescape%}
                     <br>
-                    {% autoescape off %}{{result['0']['tags']}}{% endautoescape%}
+                    <nav class="nav nav-pills nav-justified">
+                      <ul>
+                    <script>
+                      var tags = `{{result['0']['tags']}}`
+                      var s = tags.substring(1,tags.length-2);
+                      // document.write(s);
+                      let arr = s.split(',');
+                      for (i in arr){
+                        document.write('<li><a>'+arr[i]+'</a></li>');
+                      }
+                    </script>
+                    </ul>
+                    </nav>
                   </h2>
                   <br />
                   <h3 class = "details">
