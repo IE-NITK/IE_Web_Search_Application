@@ -7273,7 +7273,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
-  color: #999999; }
+  color: white; }
   body.menu-show {
     overflow: hidden;
     position: fixed;
@@ -7699,7 +7699,9 @@ h1, h2, h3, h4, h5,
 .ftco-search {
   position: relative;
   width: 100%;
-  display: block; }
+  display: block;
+  height: 300px;
+ }
   .ftco-search .nav-pills p {
     margin-bottom: 0; }
   .ftco-search .nav-pills .nav-link {
@@ -8174,7 +8176,7 @@ textarea.form-control {
       -ms-border-radius: 50%;
       border-radius: 50%; }
       .testimony-wrap .user-img .quote i {
-        color: #999999; }
+        color: white; }
   .testimony-wrap .name {
     font-weight: 400;
     font-size: 18px;
@@ -8309,6 +8311,7 @@ textarea.form-control {
     color: rgba(255, 255, 255, 0.7); }
   .block-23 ul li .icon, .block-23 ul li .text {
     display: table-cell;
+
     vertical-align: top; }
   .block-23 ul li .icon {
     width: 40px;
