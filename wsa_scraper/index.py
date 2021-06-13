@@ -1,3 +1,5 @@
+
+
 import requests
 import json
 from elasticsearch import Elasticsearch
@@ -60,22 +62,5 @@ if __name__ == "__main__":
     if (response.status_code == 200):
         print(" Created an index: stackoverflow")
     
-    # payload = {
-    #   "mappings": {
-    #     "titles" : {
-    #       "properties" : {
-    #         "title" : { "type" : "string" },
-    #         "title_suggest" : {
-    #           "type" :     "completion",
-    #           "analyzer" :  "standard",
-    #           "search_analyzer" : "standard",
-    #           "preserve_position_increments": False,
-    #           "preserve_separators": False
-    #         }
-    #       }
-    #     }
-    #   }
-    # }
-    # payload = json.dumps(payload)
-    # response = requests.request("PUT", url, data=payload, headers=headers)
+
     

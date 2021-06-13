@@ -1,3 +1,4 @@
+#Universal Encoder is required in the parent folder before running the scraper
 import scrapy
 from ..items import QuestionListItem
 from datetime import datetime
@@ -5,13 +6,15 @@ from elasticsearch import Elasticsearch
 import tensorflow as tf
 import tensorflow_hub as hub
 
+#Connecting to elasticsearch
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 if es.ping():
     print('Connected to ES!')
 else:
     print('Could not connect!')
+    exit()
 
-
+#defining mapping
 structure = {
     "settings": {
             "analysis": {
@@ -44,7 +47,6 @@ structure = {
             },
             "details": {
                 "type": "text",
-                # "enabled": false,
                 "fields": {
                     "keyword": {
                         "type": "keyword",
@@ -73,7 +75,6 @@ structure = {
             },
             "upvotes": {
                 "type": "text",
-                # "enabled": false,
                 "fields": {
                     "keyword": {
                         "type": "keyword",
@@ -83,18 +84,20 @@ structure = {
             },
             "total_vectors": {
                 "type": "dense_vector",
-                # "enabled": false,
                 "dims": 512
             }
         }
 
     }
 }
+
+#Creating an index using the above defined mapping
 res = es.indices.create(index='ie-3', ignore=400, body=structure)
 
+#Loading the encoder model for generating text embeddings
 embed = hub.load('universal_encoder')
 
-
+#Function to create text embeddings
 def make_vector(query):
     embeddings = embed([query])
     vector = []
@@ -102,14 +105,13 @@ def make_vector(query):
         vector.append(float(i))
     return vector
 
-
+#Main scraper code
 class stackoverflow(scrapy.Spider):
     i = 0
     page_no = 1
     name = 'stackoverflow'
     start_urls = [
-        "https://stackoverflow.com/questions?sort=MostVotes&edited=true&page={}".format(
-            page_no)
+        "https://stackoverflow.com/questions?sort=MostVotes&edited=true&page={}".format(page_no)
     ]
 
     def parse(self, response):
@@ -118,7 +120,6 @@ class stackoverflow(scrapy.Spider):
         for q in que_set:
             self.i += 1
             link = q.css('h3 a::attr(href)').get()
-            # print(link)
             yield response.follow(url=base_url + link, callback=self.parse_question)
         # if self.page_no<50:
         self.page_no += 1
@@ -126,25 +127,29 @@ class stackoverflow(scrapy.Spider):
 
     def parse_question(self, response):
         items = QuestionListItem()
+
         data = response.css('div.inner-content')
         items['question'] = data.css(
             "div h1 a.question-hyperlink::text").extract_first()
         details = data.css("div.question div.s-prose").extract()
         answers_raw = data.css('#answers')
+        
         tags = response.css('a.post-tag::text').extract()
         tags_set = set(tags)
         tags = list(tags_set)
         upvotes =  response.css("div.js-vote-count::text").extract_first()
+        
         if answers_raw:
             answers = ''
             raw_data = answers_raw.css("div.s-prose").extract_first()
             for row in raw_data:
-                answers = answers + row  # put a newline if newline separated data is needed
+                answers = answers + row  
 
         concat_details = ''
+        
         for detail in details:
-            # put a newline if newline separated data is needed
             concat_details = concat_details + detail
+            
         items['details'] = concat_details
         items['answers'] = answers
         items['upvotes'] = upvotes
@@ -158,6 +163,8 @@ class stackoverflow(scrapy.Spider):
             'upvotes':items['upvotes'],
             'total_vectors': items['total_vectors']
         }
+        
+        #Inserting the document into our ElasticSearch Index 
         res = es.index(index="ie-3", body=doc)
         print(res['result'])
 

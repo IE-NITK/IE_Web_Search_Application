@@ -10,6 +10,7 @@ import json
 app = Flask(__name__)
 api = Api(app)
 
+#Running ElasticSearch
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
 if es.ping():
     print('Connected to ES!')
@@ -21,38 +22,9 @@ class Controller(Resource):
     def __init__(self):
         self.query = parser.parse_args().get("query", None)
         print(self.query)
-        # self.baseQuery ={
-        #     "_source": [],
-        #     "size": 0,
-        #     "min_score": 0.5,
-        #     "query": {
-        #         "bool": {
-        #             "must": [
-        #             {
-        #                 "wildcard": {
-        #                     "question": {
-        #                         "value": "{}".format(self.query)
-        #                     }
-        #                 }
-        #             }
-        #             ],
-        #             "filter": [],
-        #             "should": [],
-        #             "must_not": []
-        #         }
-        #     },
-        #     "aggs": {
-        #         "auto_complete": {
-        #             "terms": {
-        #                 "field": "question"
-        #                 # "order": {
-        #                 #     "_count": "desc"
-        #                 # },
-        #                 # "size": 10
-        #             }
-        #         }
-        #     }
-        # }
+        
+        #Passing the query into the pre-defined analyzer
+
         self.baseQuery={           
                 
             "query": {
@@ -64,16 +36,15 @@ class Controller(Resource):
         
 
     def get(self):
+        #Relevant autocomplete results for the query
         res = es.search(index="ie-3",body=self.baseQuery)
-        # l2 = []
-        # for hit in res['hits']['hits']:
-        #     l2.append([hit['_score'] , hit['_id']]
         for x in res['hits']['hits']:
             question = x['_source']['question']
             print(question)
         return res
 
 parser = reqparse.RequestParser()
+
 parser.add_argument("query", type=str, required=True, help="query parameter is Required ")
 
 api.add_resource(Controller, '/autocomplete')
