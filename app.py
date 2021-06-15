@@ -108,8 +108,7 @@ def image_search():
 #Search Results
 @app.route('/return_searches', methods=['POST'])
 def return_searches():
-    j=0
-    result_sup = {}
+    result_sup = []
     
     for i in search(request.form.to_dict()['query']):
         result = es.search(index="ie-3",body={"query": {
@@ -123,13 +122,7 @@ def return_searches():
             answer = x['_source']['answers']
             upvotes =x['_source']['upvotes']
             tags = x['_source']['tags']
-        result_sup[str(j)] = {}
-        result_sup[str(j)]["question"] = question
-        result_sup[str(j)]["details"] = details
-        result_sup[str(j)]["answer"] = answer
-        result_sup[str(j)]["upvotes"] = upvotes
-        result_sup[str(j)]["tags"] = tags
-        j=j+1
+        result_sup.append([question,details,answer,upvotes,tags])
     return flask.render_template('search.html',result=result_sup)
 
 #Converting image into textual data
@@ -139,8 +132,7 @@ def scan_file():
 
     query = pytesseract.image_to_string(Image.open(io.BytesIO(image_data)))
     print(query)
-    j=0
-    result_sup = {}
+    result_sup = []
     
     for i in search(query):
         result = es.search(index="ie-3",body={"query": {
@@ -154,13 +146,7 @@ def scan_file():
             answer = x['_source']['answers']
             upvotes =x['_source']['upvotes']
             tags = x['_source']['tags']
-        result_sup[str(j)] = {}
-        result_sup[str(j)]["question"] = question
-        result_sup[str(j)]["details"] = details
-        result_sup[str(j)]["answer"] = answer
-        result_sup[str(j)]["upvotes"] = upvotes
-        result_sup[str(j)]["tags"] = tags
-        j=j+1
+        result_sup.append([question,details,answer,upvotes,tags])
     return flask.render_template('search.html',result=result_sup)
 
 

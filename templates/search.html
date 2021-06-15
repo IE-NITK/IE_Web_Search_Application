@@ -1,64 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Find the Best Programming Courses & Tutorials</title>
-    <!--  <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://hackr.io/assets/images/code-images/code-favicon-32x32.png"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://hackr.io/assets/images/code-images/code-favicon-16x16.png"
-      sizes="16x16"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-
-    <!-- <link rel="stylesheet" href="static/css/open-iconic-bootstrap.min.css" />
-    <link rel="stylesheet" href="static/css/animate.css" />
-
-    <link rel="stylesheet" href="static/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="static/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="static/css/magnific-popup.css" />
-
-    <link rel="stylesheet" href="static/css/aos.css" />
-
-    <link rel="stylesheet" href="static/css/ionicons.min.css" />
-
-    <link rel="stylesheet" href="static/css/bootstrap-datepicker.css" />
-    <link rel="stylesheet" href="static/css/jquery.timepicker.css" />
-
-    <link rel="stylesheet" href="static/css/flaticon.css" />
-    <link rel="stylesheet" href="static/css/icomoon.css" />
-    <link rel="stylesheet" href="static/css/style.css" /> -->
-    <link rel="stylesheet" href="static/css/testing.css" />
-    <script src="static/js/testing.js"></script>
-    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <title>Search for technical doubts</title>
     <style>
-      body{
-        font-size: 15px;
-        scrollbar-color: var(--scrollbar) transparent !important;
-      }
-      pre {
+        pre {
         font-size: 15px;
         font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
           DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
@@ -83,65 +35,6 @@
           sans-serif;
         background-color: rgba(220, 220, 220, 0.822);
       }
-      body,
-      .ul,
-      .li {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        height: 1000px;
-      }
-      .ul {
-        background: #333 !important;
-        min-width: 180px !important;
-        height: 2657px !important;
-        box-sizing: border-box !important;
-        position: fixed !important;
-        padding-right: 0% !important;
-      }
-      .li {
-        list-style-type: none !important;
-        padding: 20px 0px 20px 0px !important;
-        border-bottom: 1px solid #222 !important;
-        transform: translateY(55px) !important;
-        text-align: center !important;
-        cursor: pointer !important;
-        color: aqua !important;
-      }
-      a {
-        color: rgb(59, 116, 202) !important;
-        text-decoration: none !important;
-        padding: 10px 10px !important;
-      }
-      .li.active {
-        background: #222 !important;
-        opacity: 1 !important;
-        color:red !important;
-      }
-      .li:not(.active):hover {
-        background: #2c2c2c !important;
-      }
-      .li:hover img,
-      .active img {
-        opacity: 1;
-      }
-      .black{
-        background-color: #333 !important;
-        min-height: 60px !important;
-        margin-bottom: 0px !important;
-        padding-bottom: 10px;
-      }
-      .middle{
-        text-align: center !important;
-      }
-      .white{
-        color: white !important;
-      }
-      .source{
-        text-align: right;
-        font-size:  10px;
-      }
       .details{
         font-size: 25px !important;
         font-style:italic !important;
@@ -152,483 +45,83 @@
       .answers{
         font-size: 20px !important;
       }
-      .grid--cell{
-        display: none;
-      }
+      .color-pick:not(.active) {
+        background-color: #343A40 !important;
+        color: aqua !important;
+        height: 10%;
+        }
+
+        .color-pick {
+        background-color: #222831 !important;
+        color: #867AE9 !important;
+        height: 10%;
+        }
+
+        .titlebar{
+        background-color: #343A40 !important;
+        color: white;
+        height:23%;
+        padding-top:2%;
+        padding-bottom:2%;
+        }
+
+        .sidebar{
+        float: left;
+        position: fixed;
+        width: 25%;
+        height: 100%;
+        padding-left:0;
+        padding-right:0;
+        background-color: #343A40 !important;
+        }
+
+        .ans{
+        margin-left: 25%;
+        }
     </style>
   </head>
   <body>
-      <nav
-        class="navbar navbar-dark ftco_navbar bg-dark ftco-navbar-light black navbar-fixed-top middle"
-        id="ftco-navbar"
-      >
-          <a class="navbar-brand white" href="/">StackOverFlow Search Engine</a>
-      </nav>
-      <div class="row">
-        <div class="col-2">
-          <!-- <ul class="ul nav nav-tabs">
-            <li class="nav-item li active"><a class="nav-link active" href="#question1" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">1</span></li>
-            <li class="nav-item li active"><a class="nav-link" href="#question2" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">2</span></li>
-            <li class="nav-item li active"><a class="nav-link" href="#question3" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">3</span></li>
-            <li class="nav-item li active"><a class="nav-link" href="#question4" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">4</span></li>
-            <li class="nav-item li active"><a class="nav-link" href="#question5" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">5</span></li>
-            <li class="nav-item li active"><a class="nav-link" href="#question6" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">6</span></li>
-            <li class="nav-item li active"><a class="nav-link" href="#question7" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">7</span></li>
-            <li class="nav-item li active"><a class="nav-link" href="#question8" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">8</span></li>
-            <li class="nav-item li active"><a class="nav-link" href="#question9" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">9</span></li>
-            <li class="nav-item li active"><a class="nav-link" href="#question10" role="tab" data-toggle="tab"></a>Question <span class="badge badge-light">10</span></li>
-          </ul> -->
-          <div class="ul nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="li nav-link" id="Question1" data-toggle="pill" role="tab" ><span class="badge badge-danger">Top</span> Question <span class="badge badge-primary">1</span></a>
-            <a class="li nav-link" id="Question2" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">2</span></a>
-            <a class="li nav-link" id="Question3" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">3</span></a>
-            <a class="li nav-link" id="Question4" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">4</span></a>
-            <a class="li nav-link" id="Question5" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">5</span></a>
-            <a class="li nav-link" id="Question6" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">6</span></a>
-            <a class="li nav-link" id="Question7" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">7</span></a>
-            <a class="li nav-link" id="Question8" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">8</span></a>
-            <a class="li nav-link" id="Question9" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">9</span></a>
-            <a class="li nav-link" id="Question10" data-toggle="pill" role="tab" >Question <span class="badge badge-primary">10</span></a>
-          </div>
-        <!-- END nav -->
-        </div>
-        <div class="col-10 col-offset-1">
-          <section id="tutorial_section" class="ftco-section bg-light">
-            <div id="tutorial_lists" class="container">
-              <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane " role="tabpanel" id="question1">
-                  <h2 class = "questions">Q) 
-                    {% autoescape off %}{{result['0']['question']}}{% endautoescape%}
-                    <br>
-                    <nav class="nav nav-pills nav-justified">
-                      <ul>
-                    <script>
-                      var tags = `{{result['0']['tags']}}`
-                      var s = tags.substring(1,tags.length-2);
-                      // document.write(s);
-                      let arr = s.split(',');
-                      for (i in arr){
-                        document.write('<li><a>'+arr[i]+'</a></li>');
-                      }
-                    </script>
-                    </ul>
-                    </nav>
-                  </h2>
-                  <br />
-                  <h3 class = "details">
-                    {% autoescape off %}{{result['0']['details']}}{% endautoescape %}
-                  </h3>
-                  <br />
-                  <span class = "answers">A) {% autoescape off %}{{result['0']['answer']}}{% endautoescape%}</span>
-                  <br />
+    <div class="container-fluid">
+        <div class="row actual-content">
+            <div class="col-3 sidebar text-center">
+                <div class="nav flex-column nav-pills" style="height: 100%;" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    {% for i in range(1,11) %}
+                        {% if loop.first %} 
+                            <a class="nav-link active color-pick rounded-0" id="v-pills-{{i}}-tab" data-toggle="pill" href="#v-pills-{{i}}" role="tab" aria-controls="v-pills-{{i}}" aria-selected="true"><span class="ms-1 d-none d-sm-inline">Question </span><span class="badge badge-pill badge-light">{{loop.index}}</span></a>
+                        {% else %}
+                        <a class="nav-link color-pick rounded-0" id="v-pills-{{i}}-tab" data-toggle="pill" href="#v-pills-{{i}}" role="tab" aria-controls="v-pills-{{i}}" aria-selected="false">Question </span><span class="badge badge-pill badge-light">{{loop.index}}</span></a>
+                        {% endif %}
+                    {% endfor %}
                 </div>
-                <div class="tab-pane " role="tabpanel" id="question2">
-                  <h2 class = "questions">Q) 
-                    {% autoescape off %}{{result['1']['question']}}{% endautoescape%}
-                  </h2>
-                  <br />
-                  <h3 class = "details">
-                    {% autoescape off %}{{result['1']['details']}}{% endautoescape %}
-                  </h3>
-                  <br />
-                  <span class = "answers">A) {% autoescape off %}{{result['1']['answer']}}{% endautoescape%}</span>
-                  <br />
-                </div>
-                <div class="tab-pane " role="tabpanel" id="question3">
-                  <h2 class = "questions">Q) 
-                    {% autoescape off %}{{result['2']['question']}}{% endautoescape%}
-                  </h2>
-                  <br />
-                  <h3 class = "details">
-                    {% autoescape off %}{{result['2']['details']}}{% endautoescape %}
-                  </h3>
-                  <br />
-                  <span class = "answers">A) {% autoescape off %}{{result['2']['answer']}}{% endautoescape%}</span>
-                  <br />
-                </div>
-                <div class="tab-pane " role="tabpanel" id="question4">
-                  <h2 class = "questions">Q) 
-                    {% autoescape off %} {{result['3']['question']}}{% endautoescape%}
-                  </h2>
-                  <br />
-                  <h3 class = "details">
-                    {% autoescape off %}{{result['3']['details']}}{% endautoescape %}
-                  </h3>
-                  <br />
-                  <span class = "answers">A) {% autoescape off %}{{result['3']['answer']}}{% endautoescape%}</span>
-                  <br />
-                </div>
-                <div class="tab-pane " role="tabpanel" id="question5">
-                  <h2 class = "questions">Q) 
-                    {% autoescape off %}{{result['4']['question']}}{% endautoescape%}
-                  </h2>
-                  <br />
-                  <h3 class = "details">
-                    {% autoescape off %}{{result['4']['details']}}{% endautoescape %}
-                  </h3>
-                  <br />
-                  <span class = "answers">A) {% autoescape off %}{{result['4']['answer']}}{% endautoescape%}</span>
-                  <br />
-                </div>
-                <div class="tab-pane " role="tabpanel" id="question6">
-                  <h2 class = "questions">Q) 
-                    {% autoescape off %}{{result['5']['question']}}{% endautoescape%}
-                  </h2>
-                  <br />
-                  <h3 class = "details">
-                    {% autoescape off %}{{result['5']['details']}}{% endautoescape %}
-                  </h3>
-                  <br />
-                  <span class = "answers">A) {% autoescape off %}{{result['5']['answer']}}{% endautoescape%}</span>
-                  <br />
-                </div>
-                <div class="tab-pane " role="tabpanel" id="question7">
-                  <h2 class = "questions">Q) 
-                    {% autoescape off %}{{result['6']['question']}}{% endautoescape%}
-                  </h2>
-                  <br />
-                  <h3 class = "details">
-                    {% autoescape off %}{{result['6']['details']}}{% endautoescape %}
-                  </h3>
-                  <br />
-                  <span class = "answers">A) {% autoescape off %}{{result['6']['answer']}}{% endautoescape%}</span>
-                  <br />
-                </div>
-                <div class="tab-pane " role="tabpanel" id="question8">
-                  <h2 class = "questions">Q) 
-                    {% autoescape off %}{{result['7']['question']}}{% endautoescape%}
-                  </h2>
-                  <br />
-                  <h3 class = "details">
-                    {% autoescape off %}{{result['7']['details']}}{% endautoescape %}
-                  </h3>
-                  <br />
-                  <span class = "answers">A) {% autoescape off %}{{result['7']['answer']}}{% endautoescape%}</span>
-                  <br />
-                </div>
-                <div class="tab-pane " role="tabpanel" id="question9">
-                  <h2 class = "questions">Q) 
-                    {% autoescape off %}{{result['8']['question']}}{% endautoescape%}
-                  </h2>
-                  <br />
-                  <h3 class = "details">
-                    {% autoescape off %}{{result['8']['details']}}{% endautoescape %}
-                  </h3>
-                  <br />
-                  <span class = "answers">A) {% autoescape off %}{{result['8']['answer']}}{% endautoescape%}</span>
-                  <br />
-                </div>
-                <div class="tab-pane " role="tabpanel" id="question10">
-                  <h2 class = "questions">Q) 
-                    {% autoescape off %}{{result['9']['question']}}{% endautoescape%}
-                  </h2>
-                  <br />
-                  <h3 class = "details">
-                    {% autoescape off %}{{result['9']['details']}}{% endautoescape %}
-                  </h3>
-                  <br />
-                  <span class = "answers">A) {% autoescape off %}{{result['9']['answer']}}{% endautoescape%}</span>
-                  <br />
-                </div>
-              </div>
             </div>
-          </section>
-          <div class="source">Source: <a href="https://stackoverflow.com/" target="_blank">Stackoverflow</a></div>
+            <div class="col-9 ans">
+                <div class="tab-content" id="v-pills-tabContent">
+                    {% for ele in result %}
+                        {% if loop.first %}
+                            <div class="tab-pane fade show active" id="v-pills-{{loop.index}}" role="tabpanel" aria-labelledby="v-pills-{{loop.index}}-tab">
+                        {% else %}
+                            <div class="tab-pane fade" id="v-pills-{{loop.index}}" role="tabpanel" aria-labelledby="v-pills-{{loop.index}}-tab">
+                        {% endif %}
+                            <h2 class = "questions">Q) 
+                                {% autoescape off %}{{ele[0]}}{% endautoescape%}
+                            </h2>
+                            <br />
+                            <h3 class = "details">
+                                {% autoescape off %}{{ele[1]}}{% endautoescape %}
+                            </h3>
+                            <br />
+                              <span class = "answers">A) {% autoescape off %}{{ele[2]}}{% endautoescape%}</span>
+                            <br />
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-      
-      </div>
-      
-   
-    <!-- loader -->
-    <!--<div id="ftco-loader" class="show fullscreen">
-      <svg class="circular" width="48px" height="48px">
-        <circle
-          class="path-bg"
-          cx="24"
-          cy="24"
-          r="22"
-          fill="none"
-          stroke-width="4"
-          stroke="#eeeeee"
-        />
-        <circle
-          class="path"
-          cx="24"
-          cy="24"
-          r="22"
-          fill="none"
-          stroke-width="4"
-          stroke-miterlimit="10"
-          stroke="#F96D00"
-        />
-      </svg>
-    </div>-->
-
-    <!-- <script src="static/js/jquery.min.js"></script>
-
-    <script src="static/js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="static/js/popper.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
-    <script src="static/js/jquery.easing.1.3.js"></script>
-    <script src="static/js/jquery.waypoints.min.js"></script>
-    <script src="static/js/jquery.stellar.min.js"></script>
-    <script src="static/js/owl.carousel.min.js"></script>
-    <script src="static/js/jquery.magnific-popup.min.js"></script>
-    <script src="static/js/aos.js"></script>
-    <script src="static/js/jquery.animateNumber.min.js"></script>
-    <script src="static/js/bootstrap-datepicker.js"></script>
-    <script src="static/js/jquery.timepicker.min.js"></script>
-    <script src="static/js/scrollax.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="static/js/google-map.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="static/js/main.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
   </body>
-  <script>
-     
-    $(document).ready(function() {
-      $('nav-link').click(function(){
-        $('nav-link').removeClass("active");
-        $(this).addClass("active");
-    }); 
-      $("#Question1").addClass("active");
-      $("#question1").show();
-      $("#question2").hide();
-      $("#question3").hide();
-      $("#question4").hide();
-      $("#question5").hide();
-      $("#question6").hide();
-      $("#question7").hide(); 
-      $("#question8").hide();
-      $("#question9").hide();
-      $("#question10").hide();
-    
-      $("#Question1").click(function() {
-        $("#question1").show();
-      $("#question2").hide();
-      $("#question3").hide();
-      $("#question4").hide();
-      $("#question5").hide();
-      $("#question6").hide();
-      $("#question7").hide();
-      $("#question8").hide();
-      $("#question9").hide();
-      $("#question10").hide();
-      $("#Question1").addClass("active");
-      $("#Question2").removeClass("active");
-      $("#Question3").removeClass("active");
-      $("#Question4").removeClass("active");
-      $("#Question5").removeClass("active");
-      $("#Question6").removeClass("active");
-      $("#Question7").removeClass("active");
-      $("#Question8").removeClass("active");
-      $("#Question9").removeClass("active");
-      $("#Question10").removeClass("active");
-      });
-    
-      $("#Question2").click(function() {
-        $("#question1").hide();
-      $("#question2").show();
-      $("#question3").hide();
-      $("#question4").hide();
-      $("#question5").hide();
-      $("#question6").hide();
-      $("#question7").hide();
-      $("#question8").hide();
-      $("#question9").hide();
-      $("#question10").hide();
-      $("#Question2").addClass("active");
-      $("#Question1").removeClass("active");
-      $("#Question3").removeClass("active");
-      $("#Question4").removeClass("active");
-      $("#Question5").removeClass("active");
-      $("#Question6").removeClass("active");
-      $("#Question7").removeClass("active");
-      $("#Question8").removeClass("active");
-      $("#Question9").removeClass("active");
-      $("#Question10").removeClass("active");
-      });
-    
-      $("#Question3").click(function() {
-        $("#question1").hide();
-      $("#question2").hide();
-      $("#question3").show();
-      $("#question4").hide();
-      $("#question5").hide();
-      $("#question6").hide();
-      $("#question7").hide();
-      $("#question8").hide();
-      $("#question9").hide();
-      $("#question10").hide();
-      $("#Question3").addClass("active");
-      $("#Question2").removeClass("active");
-      $("#Question1").removeClass("active");
-      $("#Question4").removeClass("active");
-      $("#Question5").removeClass("active");
-      $("#Question6").removeClass("active");
-      $("#Question7").removeClass("active");
-      $("#Question8").removeClass("active");
-      $("#Question9").removeClass("active");
-      $("#Question10").removeClass("active");
-      });
-    
-      $("#Question4").click(function() {
-        $("#question1").hide();
-        $("#question2").hide();
-        $("#question3").hide();
-        $("#question4").show();
-        $("#question5").hide();
-        $("#question6").hide();
-        $("#question7").hide();
-        $("#question8").hide();
-        $("#question9").hide();
-        $("#question10").hide();
-        $("#Question4").addClass("active");
-      $("#Question2").removeClass("active");
-      $("#Question3").removeClass("active");
-      $("#Question1").removeClass("active");
-      $("#Question5").removeClass("active");
-      $("#Question6").removeClass("active");
-      $("#Question7").removeClass("active");
-      $("#Question8").removeClass("active");
-      $("#Question9").removeClass("active");
-      $("#Question10").removeClass("active");
-      });
-
-      $("#Question5").click(function() {
-        $("#question1").hide();
-        $("#question2").hide();
-        $("#question3").hide();
-        $("#question4").hide();
-        $("#question5").show();
-        $("#question6").hide();
-        $("#question7").hide();
-        $("#question8").hide();
-        $("#question9").hide();
-        $("#question10").hide();
-        $("#Question5").addClass("active");
-      $("#Question2").removeClass("active");
-      $("#Question3").removeClass("active");
-      $("#Question4").removeClass("active");
-      $("#Question1").removeClass("active");
-      $("#Question6").removeClass("active");
-      $("#Question7").removeClass("active");
-      $("#Question8").removeClass("active");
-      $("#Question9").removeClass("active");
-      $("#Question10").removeClass("active");
-      });
-      $("#Question6").click(function() {
-        $("#question1").hide();
-        $("#question2").hide();
-        $("#question3").hide();
-        $("#question4").hide();
-        $("#question5").hide();
-        $("#question6").show();
-        $("#question7").hide();
-        $("#question8").hide();
-        $("#question9").hide();
-        $("#question10").hide();
-        $("#Question6").addClass("active");
-      $("#Question2").removeClass("active");
-      $("#Question3").removeClass("active");
-      $("#Question4").removeClass("active");
-      $("#Question5").removeClass("active");
-      $("#Question1").removeClass("active");
-      $("#Question7").removeClass("active");
-      $("#Question8").removeClass("active");
-      $("#Question9").removeClass("active");
-      $("#Question10").removeClass("active");
-      });
-      $("#Question7").click(function() {
-        $("#question1").hide();
-        $("#question2").hide();
-        $("#question3").hide();
-        $("#question4").hide();
-        $("#question5").hide();
-        $("#question6").hide();
-        $("#question7").show();
-        $("#question8").hide();
-        $("#question9").hide();
-        $("#question10").hide();
-        $("#Question7").addClass("active");
-      $("#Question2").removeClass("active");
-      $("#Question3").removeClass("active");
-      $("#Question4").removeClass("active");
-      $("#Question5").removeClass("active");
-      $("#Question6").removeClass("active");
-      $("#Question1").removeClass("active");
-      $("#Question8").removeClass("active");
-      $("#Question9").removeClass("active");
-      $("#Question10").removeClass("active");
-      });
-      $("#Question8").click(function() {
-        $("#question1").hide();
-        $("#question2").hide();
-        $("#question3").hide();
-        $("#question4").hide();
-        $("#question5").hide();
-        $("#question6").hide();
-        $("#question7").hide();
-        $("#question8").show();
-        $("#question9").hide();
-        $("#question10").hide();
-        $("#Question8").addClass("active");
-      $("#Question2").removeClass("active");
-      $("#Question3").removeClass("active");
-      $("#Question4").removeClass("active");
-      $("#Question5").removeClass("active");
-      $("#Question6").removeClass("active");
-      $("#Question7").removeClass("active");
-      $("#Question1").removeClass("active");
-      $("#Question9").removeClass("active");
-      $("#Question10").removeClass("active");
-      });
-      $("#Question9").click(function() {
-        $("#question1").hide();
-        $("#question2").hide();
-        $("#question3").hide();
-        $("#question4").hide();
-        $("#question5").hide();
-        $("#question6").hide();
-        $("#question7").hide();
-        $("#question8").hide();
-        $("#question9").show();
-        $("#question10").hide();
-        $("#Question9").addClass("active");
-      $("#Question2").removeClass("active");
-      $("#Question3").removeClass("active");
-      $("#Question4").removeClass("active");
-      $("#Question5").removeClass("active");
-      $("#Question6").removeClass("active");
-      $("#Question7").removeClass("active");
-      $("#Question8").removeClass("active");
-      $("#Question1").removeClass("active");
-      $("#Question10").removeClass("active");
-      });
-      $("#Question10").click(function() {
-        $("#question1").hide();
-        $("#question2").hide();
-        $("#question3").hide();
-        $("#question4").hide();
-        $("#question5").hide();
-        $("#question6").hide();
-        $("#question7").hide();
-        $("#question8").hide();
-        $("#question9").hide();
-        $("#question10").show();
-        $("#Question10").addClass("active");
-      $("#Question2").removeClass("active");
-      $("#Question3").removeClass("active");
-      $("#Question4").removeClass("active");
-      $("#Question5").removeClass("active");
-      $("#Question6").removeClass("active");
-      $("#Question7").removeClass("active");
-      $("#Question8").removeClass("active");
-      $("#Question9").removeClass("active");
-      $("#Question1").removeClass("active");
-      });
-    });
-  </script>
 </html>
