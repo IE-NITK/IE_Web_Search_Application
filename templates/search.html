@@ -89,7 +89,7 @@
                         {% if loop.first %} 
                             <a class="nav-link active color-pick rounded-0" id="v-pills-{{i}}-tab" data-toggle="pill" href="#v-pills-{{i}}" role="tab" aria-controls="v-pills-{{i}}" aria-selected="true"><span class="ms-1 d-none d-sm-inline">Question </span><span class="badge badge-pill badge-light">{{loop.index}}</span></a>
                         {% else %}
-                        <a class="nav-link color-pick rounded-0" id="v-pills-{{i}}-tab" data-toggle="pill" href="#v-pills-{{i}}" role="tab" aria-controls="v-pills-{{i}}" aria-selected="false">Question </span><span class="badge badge-pill badge-light">{{loop.index}}</span></a>
+                            <a class="nav-link color-pick rounded-0" id="v-pills-{{i}}-tab" data-toggle="pill" href="#v-pills-{{i}}" role="tab" aria-controls="v-pills-{{i}}" aria-selected="false"><span class="ms-1 d-none d-sm-inline">Question </span><span class="badge badge-pill badge-light">{{loop.index}}</span></a>
                         {% endif %}
                     {% endfor %}
                 </div>
