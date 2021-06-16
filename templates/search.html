@@ -35,6 +35,18 @@
           sans-serif;
         background-color: rgba(220, 220, 220, 0.822);
       }
+      a:link {
+        color: red;
+      }
+      a:visited {
+        color: grey;
+      }
+      a:hover {
+        color: red;
+      }
+      a:active {
+        color:red;
+      }
       .details{
         font-size: 25px !important;
         font-style:italic !important;
@@ -46,7 +58,7 @@
         font-size: 20px !important;
       }
       .color-pick:not(.active) {
-        background-color: #343A40 !important;
+        background-color: #272c3b !important;
         color: aqua !important;
         height: 10%;
         }
@@ -57,14 +69,6 @@
         height: 10%;
         }
 
-        .titlebar{
-        background-color: #343A40 !important;
-        color: white;
-        height:23%;
-        padding-top:2%;
-        padding-bottom:2%;
-        }
-
         .sidebar{
         float: left;
         position: fixed;
@@ -72,7 +76,8 @@
         height: 100%;
         padding-left:0;
         padding-right:0;
-        background-color: #343A40 !important;
+        background-color: #272c3b !important;
+        z-index: 1;
         }
 
         .ans{
@@ -89,7 +94,7 @@
                         {% if loop.first %} 
                             <a class="nav-link active color-pick rounded-0" id="v-pills-{{i}}-tab" data-toggle="pill" href="#v-pills-{{i}}" role="tab" aria-controls="v-pills-{{i}}" aria-selected="true"><span class="ms-1 d-none d-sm-inline">Question </span><span class="badge badge-pill badge-light">{{loop.index}}</span></a>
                         {% else %}
-                        <a class="nav-link color-pick rounded-0" id="v-pills-{{i}}-tab" data-toggle="pill" href="#v-pills-{{i}}" role="tab" aria-controls="v-pills-{{i}}" aria-selected="false">Question </span><span class="badge badge-pill badge-light">{{loop.index}}</span></a>
+                          <a class="nav-link color-pick rounded-0" id="v-pills-{{i}}-tab" data-toggle="pill" href="#v-pills-{{i}}" role="tab" aria-controls="v-pills-{{i}}" aria-selected="false"><span class="ms-1 d-none d-sm-inline">Question </span><span class="badge badge-pill badge-light">{{loop.index}}</span></a>
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -103,14 +108,14 @@
                             <div class="tab-pane fade" id="v-pills-{{loop.index}}" role="tabpanel" aria-labelledby="v-pills-{{loop.index}}-tab">
                         {% endif %}
                             <h2 class = "questions">Q) 
-                                {% autoescape off %}{{ele[0]}}{% endautoescape%}
+                                {% autoescape off %}{{ele[0]}}{% endautoescape %}
                             </h2>
                             <br />
                             <h3 class = "details">
                                 {% autoescape off %}{{ele[1]}}{% endautoescape %}
                             </h3>
                             <br />
-                              <span class = "answers">A) {% autoescape off %}{{ele[2]}}{% endautoescape%}</span>
+                              <span class = "answers">A) {% autoescape off %}{{ele[2]}}{% endautoescape %}</span>
                             <br />
                         </div>
                     {% endfor %}
@@ -123,5 +128,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+      $('a').attr('target', '_blank');
+    </script>
   </body>
 </html>

@@ -133,7 +133,6 @@ def scan_file():
     query = pytesseract.image_to_string(Image.open(io.BytesIO(image_data)))
     print(query)
     result_sup = []
-    
     for i in search(query):
         result = es.search(index="ie-3",body={"query": {
         "terms": {
