@@ -47,7 +47,7 @@ def search(query):
             'query':{ 'match':{"question":query } }
             }
 
-    res= es.search(index='ie-3',body=request)
+    res= es.search(index='ie-4',body=request)
     l1 = []
     for hit in res['hits']['hits']:
         l1.append([hit['_score'] , hit['_id']])
@@ -68,7 +68,7 @@ def search(query):
                     }
                 }
             }
-    res= es.search(index='ie-3',body=request)
+    res= es.search(index='ie-4',body=request)
     l2 = []
     for hit in res['hits']['hits']:
         l2.append([hit['_score'] , hit['_id']])
@@ -111,7 +111,7 @@ def return_searches():
     result_sup = []
     
     for i in search(request.form.to_dict()['query']):
-        result = es.search(index="ie-3",body={"query": {
+        result = es.search(index="ie-4",body={"query": {
         "terms": {
         "_id": ['{}'.format(i[1])]
         }
@@ -128,13 +128,15 @@ def return_searches():
 #Converting image into textual data
 @app.route('/scanner', methods=['POST'])
 def scan_file():
+
     image_data = request.files['file'].read()
 
     query = pytesseract.image_to_string(Image.open(io.BytesIO(image_data)))
+    
     print(query)
     result_sup = []
     for i in search(query):
-        result = es.search(index="ie-3",body={"query": {
+        result = es.search(index="ie-4",body={"query": {
         "terms": {
         "_id": ['{}'.format(i[1])]
         }
@@ -179,5 +181,6 @@ def pipe():
     return response.json()
     
 if __name__ == '__main__':
-    pytesseract.pytesseract.tesseract_cmd = r'D:\Pytesseract\tesseract'
+    #pytesseract.pytesseract.tesseract_cmd = r'D:\Pytesseract\tesseract'
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\\Tesseract-OCR\\tesseract.exe'
     app.run( port=8080)

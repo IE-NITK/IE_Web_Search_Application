@@ -108,7 +108,7 @@ def make_vector(query):
 #Main scraper code
 class stackoverflow(scrapy.Spider):
     i = 0
-    page_no = 1
+    page_no = 20001
     name = 'stackoverflow'
     start_urls = [
         "https://stackoverflow.com/questions?sort=MostVotes&edited=true&page={}".format(page_no)
@@ -121,9 +121,9 @@ class stackoverflow(scrapy.Spider):
             self.i += 1
             link = q.css('h3 a::attr(href)').get()
             yield response.follow(url=base_url + link, callback=self.parse_question)
-        # if self.page_no<50:
-        self.page_no += 1
-        yield scrapy.Request(url="https://stackoverflow.com/questions?sort=MostVotes&edited=true&page={}".format(self.page_no), callback=self.parse)
+        if self.page_no<40001:
+            self.page_no += 1
+            yield scrapy.Request(url="https://stackoverflow.com/questions?sort=MostVotes&edited=true&page={}".format(self.page_no), callback=self.parse)
 
     def parse_question(self, response):
         items = QuestionListItem()
@@ -165,8 +165,8 @@ class stackoverflow(scrapy.Spider):
         }
         
         #Inserting the document into our ElasticSearch Index 
-        res = es.index(index="ie-3", body=doc)
-        print(res['result'])
+        # res = es.index(index="ie-3", body=doc)
+        # print(res['result'])
 
         yield items
 
