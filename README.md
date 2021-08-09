@@ -3,15 +3,15 @@ This project was taken as a year long project under IE NITK 2020.
 
 ## Demo
 
-![](\images\demo_image(1).jpeg)
+![](images/demo_image(1).jpeg)
 
-![](\images\demo_image(2).jpeg)
+![](images/demo_image(2).jpeg)
 
-![](\images\demo_image(3).jpeg)
+![](images/demo_image(3).jpeg)
 
-![](\images\demo_image(4).jpeg)
+![](images/demo_image(4).jpeg)
 
-![](\images\demo_image(5).jpeg)
+![](images/demo_image(5).jpeg)
 
 ## Requirements
 - [ElasticSearch](https://www.elastic.co/downloads/elasticsearch)
