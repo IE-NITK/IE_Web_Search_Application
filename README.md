@@ -3,14 +3,20 @@ This project was taken as a year long project under IE NITK 2020.
 
 ## Demo
 
-![](Demo/Human-Parsing-Demo-1.gif)
+![](\images\demo_image(1).jpeg)
 
-![](Demo/Human-Parsing-Demo-2.gif)
+![](\images\demo_image(2).jpeg)
+
+![](\images\demo_image(3).jpeg)
+
+![](\images\demo_image(4).jpeg)
+
+![](\images\demo_image(5).jpeg)
 
 ## Requirements
-[ElasticSearch](https://www.elastic.co/downloads/elasticsearch)
-[Flask](https://www.elastic.co/downloads/elasticsearch)
-[Universal Sentence Encoder](https://tfhub.dev/google/universal-sentence-encoder/4)
+- [ElasticSearch](https://www.elastic.co/downloads/elasticsearch)
+- [Flask](https://www.elastic.co/downloads/elasticsearch)
+- [Universal Sentence Encoder](https://tfhub.dev/google/universal-sentence-encoder/4)
 
 ## Usage
 
